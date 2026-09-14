@@ -1,0 +1,274 @@
+/* Actual change-request pages only. Values mirror cr_new.html STEP 1.
+   Loaded only by cr_detail; tutorials reuse this template without these rules. */
+.cr-workflow-tracker,
+.cr-request-stage,
+.cr-step-content,
+.cr-workflow-tracker :is(button, input, select, textarea),
+.cr-request-stage :is(button, input, select, textarea),
+.cr-step-content :is(button, input, select, textarea) {
+  font-family:var(--cr-workflow-font)!important;
+}
+
+.cr-step-content {
+  border-top-width: 3px;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-xs);
+}
+
+.cr-step-content > [data-step-group] {
+  padding: 10px 0 !important;
+}
+
+.cr-step-content .action-panel-title,
+.cr-step-content .card-title,
+.cr-step-content .cr-completion-head h3 {
+  margin-bottom: 8px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  color: #17365d;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.45;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cr-step-content > .cr-stage-heading {
+  display: block;
+  padding: 0 0 12px !important;
+  border-top: 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.cr-request-history-head {
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.cr-stage-heading .cr-stage-kicker {
+  display: block;
+  color: var(--posco-500);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .08em;
+}
+
+.cr-stage-heading h2 {
+  margin: 2px 0 3px;
+  color: #17365d;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.cr-stage-heading p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+/* Keep the plan attachment actions on their own row beneath the section title. */
+.cr-plan-attachment-head {
+  align-items: flex-start !important;
+  flex-direction: column;
+  gap: 8px;
+}
+.cr-plan-attachment-head .cr-step-attachment-actions {
+  width: 100%;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.cr-request-stage .cr-step1-kicker {
+  display: block;
+  color: var(--posco-500);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .08em;
+}
+
+.cr-request-stage .cr-section-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 7px;
+  color: #17365d;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.cr-request-stage .cr-section-title > span,
+.cr-step-content .commissioning-section-head > div > span {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--posco-500);
+  color: #fff;
+  font-size: 10px;
+}
+
+.cr-step-content .form-label,
+:is(#modal-request_form, #modal-plan_form) .form-label,
+.cr-step-content .cr-completion-comment label,
+.cr-step-content .cr-completion-attachments > label,
+.cr-step-content .cr-completion-fields label {
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.cr-step-content .form-group,
+:is(#modal-request_form, #modal-plan_form) .form-group { margin-bottom: 8px; }
+
+.cr-step-content .form-control,
+:is(#modal-request_form, #modal-plan_form) .form-control,
+.cr-step-content .risk-review-box select {
+  min-height: 35px;
+  padding: 7px 9px;
+  border: 1px solid var(--border-bright);
+  border-radius: var(--r);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 12px;
+}
+
+/* Risk selects have legacy inline presentation; retain their names and handlers. */
+.cr-step-content .risk-review-box select {
+  padding: 7px 9px !important;
+  border: 1px solid var(--border-bright) !important;
+  border-radius: var(--r) !important;
+  font-size: 12px !important;
+}
+
+.cr-step-content .form-control:focus,
+:is(#modal-request_form, #modal-plan_form) .form-control:focus,
+.cr-step-content .risk-review-box select:focus {
+  outline: none;
+  border-color: var(--posco-400) !important;
+  background: #fff;
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.cr-step-content textarea.form-control,
+:is(#modal-request_form, #modal-plan_form) textarea.form-control,
+.cr-step-content textarea.form-control.cr-plan-comment,
+.cr-step-content textarea.form-control.commissioning-compact-text {
+  min-height: 58px !important;
+  height: auto;
+  line-height: 1.45;
+  padding: 7px 9px;
+  resize: vertical;
+}
+
+.cr-step-content .review-opinion-field textarea.form-control {
+  min-height: 116px !important;
+}
+
+.cr-step-content .review-workspace-column,
+.cr-step-content .commissioning-inline-section {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--bg-card);
+}
+
+.cr-step-content .commissioning-inline-section.is-complete {
+  border-color: #a9d8bf;
+  background: #f3fbf7;
+}
+
+.cr-step-content .commissioning-form-grid,
+.cr-step-content .education-detail-grid,
+.cr-step-content .commissioning-plan-grid { gap: 8px 12px; }
+
+.cr-step-content .commissioning-section-head strong,
+.cr-step-content .grade-reference-head strong,
+.cr-step-content .risk-review-head strong,
+.cr-step-content .cr-completion-subsection h4 {
+  color: #17365d;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.cr-step-content .commissioning-section-head small,
+.cr-step-content .standards-revision-options small,
+.cr-step-content .cr-completion-head p {
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.cr-step-content .btn {
+  border-radius: var(--r);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Attachment helpers use the compact secondary buttons from STEP 1. */
+.cr-step-content .btn-sm,
+.cr-step-content .criteria-mini-btn,
+.cr-step-content .cr-step-attachment-actions .btn {
+  min-height: 28px;
+  padding: 4px 9px !important;
+  border-radius: 6px;
+  font-size: 10px !important;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.cr-step-content .action-buttons {
+  gap: 8px;
+  padding-top: 14px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.cr-step-content .info-box,
+.cr-step-content .warn-box,
+.cr-step-content .doc-status,
+.cr-step-content .completion-message {
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.cr-step-content .cr-completion-fields > div {
+  border-radius: var(--r);
+  background: var(--bg-base);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.cr-step-content .cr-step5-guidance { font-size: 11px; white-space: normal; }
+.cr-step-content .cr-step5-grade span { font-size: 10.5px; }
+.cr-step-content .cr-completion-meta { flex-wrap: wrap; white-space: normal; }
+.cr-step-content .attach-item a { overflow-wrap: anywhere; min-width: 0; }
+
+@media (max-width: 700px) {
+  .cr-step-content .btn { white-space: normal; line-height: 1.45; max-width: 100%; }
+  .cr-step-content .cr-plan-attachment-head,
+  .cr-step-content .cr-plan-attachment-row { align-items: stretch; flex-direction: column; }
+  .cr-step-content .cr-step-attachment-actions,
+  .cr-step-content .commissioning-attachment-row > div { flex-wrap: wrap; }
+  .cr-step-content .action-panel-title .criteria-mini-group { margin-left: 0; }
+}
+
+/* Standalone submit rows follow STEP 1's right-aligned actions. */
+.cr-step-content > .action-panel > form > .btn {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+}
+
+:is(#modal-request_form, #modal-plan_form) .modal-header h3 {
+  font-size: 18px;
+  color: #17365d;
+}
+
+.cr-step-content .risk-review-box label {
+  font-size: 10.5px !important;
+  color: var(--text-secondary) !important;
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>변경관리 정적 화면 미리보기</title>
+  <style>
+    *{box-sizing:border-box} html,body{height:100%;margin:0}
+    body{display:grid;grid-template-rows:auto 1fr;background:#eaf1f8;font-family:Arial,'Malgun Gothic',sans-serif;color:#0b2f55}
+    header{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#fff;border-bottom:1px solid #c9d9eb;box-shadow:0 2px 8px rgba(15,45,75,.08)}
+    header strong{white-space:nowrap;font-size:14px} nav{display:flex;gap:5px;overflow-x:auto}
+    button{min-height:30px;padding:5px 9px;border:1px solid #b8cde4;border-radius:7px;background:#fff;color:#174b7a;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
+    button:hover,button.active{border-color:#0873ba;background:#0873ba;color:#fff}
+    .notice{margin-left:auto;color:#697f95;font-size:11px;white-space:nowrap}
+    iframe{width:100%;height:100%;border:0;background:#eef4fa}
+    @media(max-width:760px){header{align-items:stretch;flex-direction:column}.notice{margin-left:0}}
+  </style>
+</head>
+<body>
+  <header>
+    <strong>서버 없이 보는 화면 미리보기</strong>
+    <nav><button class="active" type="button" onclick="showPage('all.html', this)">전체 보기</button><button type="button" onclick="showPage('step-1.html', this)">STEP 1</button><button type="button" onclick="showPage('step-2.html', this)">STEP 2</button><button type="button" onclick="showPage('step-3.html', this)">STEP 3</button><button type="button" onclick="showPage('step-4.html', this)">STEP 4</button><button type="button" onclick="showPage('step-5.html', this)">STEP 5</button><button type="button" onclick="showPage('step-6.html', this)">STEP 6</button><button type="button" onclick="showPage('step-7.html', this)">STEP 7</button><button type="button" onclick="showPage('step-8.html', this)">STEP 8</button><button type="button" onclick="showPage('step-9.html', this)">STEP 9</button><button type="button" onclick="showPage('step-10.html', this)">STEP 10</button><button type="button" onclick="showPage('new.html', this)">신규 작성</button></nav>
+    <span class="notice">테스트 데이터 · 저장/승인 기능 비활성</span>
+  </header>
+  <iframe id="preview-frame" src="all.html" title="변경관리 화면"></iframe>
+  <script>
+    function showPage(file, button) {
+      document.getElementById('preview-frame').src = file;
+      document.querySelectorAll('nav button').forEach(function (item) { item.classList.remove('active'); });
+      button.classList.add('active');
+    }
+  </script>
+</body>
+</html>

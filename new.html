@@ -236,7 +236,7 @@
 </nav>
 
 <form method="POST" enctype="multipart/form-data" onsubmit="return onCrNewSubmit(event)">
-  <input type="hidden" name="_csrf_token" value="d981aa0b95d710fb2533f92e11799b6890573aba0390e71f3dd6500b1ef7eb9c">
+  <input type="hidden" name="_csrf_token" value="65240569b7358573f72cd350c1a79e68566c4fdadd7940e41b850c1649558145">
   <section class="card cr-step1-card">
     <div class="cr-step1-head">
       <div>
@@ -769,7 +769,7 @@ function onCrNewSubmit(evt) {
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = 'd981aa0b95d710fb2533f92e11799b6890573aba0390e71f3dd6500b1ef7eb9c';
+  var token = '65240569b7358573f72cd350c1a79e68566c4fdadd7940e41b850c1649558145';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -3446,7 +3446,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'd981aa0b95d710fb2533f92e11799b6890573aba0390e71f3dd6500b1ef7eb9c' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '65240569b7358573f72cd350c1a79e68566c4fdadd7940e41b850c1649558145' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

@@ -194,7 +194,7 @@
       &nbsp;제어 프로그램 개선 및 안전성 검증
     </div>
     <div class="page-subtitle" style="margin-top:4px">
-      등록일 2026-09-15 13:26 · 신청자 미리보기 관리자
+      등록일 2026-09-16 11:19 · 신청자 미리보기 관리자
       ·  
       · 압연 제어설비
     </div>
@@ -518,7 +518,7 @@
   <div class="di-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
   <div class="di-body">
     <div class="detail-label">변경 요청일</div>
-    <div class="detail-value mono">2026-09-15</div>
+    <div class="detail-value mono">2026-09-16</div>
   </div>
 </div>
 
@@ -586,6 +586,7 @@
 <header class="cr-stage-heading" data-step-group="COMPLETED">
   <span class="cr-stage-kicker">STEP 10</span><h2>완료</h2><p>프로그램 백업과 관련 산출물을 확인하고 변경관리를 완료합니다.</p>
 </header>
+
 
 
 
@@ -690,7 +691,7 @@
     <div class="warn-box" style="margin-bottom:10px;">⚠ 개선요청서 첨부파일(서식 등)을 업로드하면 검토자가 참고할 수 있습니다.</div>
     
     <form method="POST" action="/cr/1/action">
-      <input type="hidden" name="_csrf_token" value="4b61b7d78aaf8e7414bd506fd6edd02f74dbe4a8329b73aa74ce9f3bd3f4f530">
+      <input type="hidden" name="_csrf_token" value="cb7afe076ef1063a66570a873d832a7bf6c4296a94667fd8d98bf25283420c0c">
       <input type="hidden" name="action" value="submit">
       <div class="form-group">
         <label class="form-label">기술검토(1차) 담당자 지정 <span class="req">*</span></label>
@@ -820,6 +821,18 @@ function handleStandardsRevisionChoice(value) {
 
 
 
+<div id="modal-committee-attendees" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="committee-attendee-title">
+  <div class="modal-box committee-attendee-modal">
+    <div class="modal-header"><h3 id="committee-attendee-title">👥 참석자 인사정보 검색</h3><button type="button" class="modal-close" onclick="closeModal('modal-committee-attendees')" aria-label="닫기">×</button></div>
+    <div class="modal-body modal-body-compact">
+      <label class="form-label" for="committee-attendee-search">이름·부서·직책 검색</label>
+      <input id="committee-attendee-search" type="search" class="form-control" autocomplete="off" placeholder="검색어를 입력하세요">
+      <div id="committee-attendee-results" class="committee-attendee-results"></div>
+    </div>
+    <div class="modal-footer"><span id="committee-attendee-count" class="text-muted">0명 선택</span><button type="button" class="btn btn-ghost" onclick="closeModal('modal-committee-attendees')">선택 완료</button></div>
+  </div>
+</div>
+
 
 
 
@@ -838,7 +851,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/1/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="4b61b7d78aaf8e7414bd506fd6edd02f74dbe4a8329b73aa74ce9f3bd3f4f530">
+        <input type="hidden" name="_csrf_token" value="cb7afe076ef1063a66570a873d832a7bf6c4296a94667fd8d98bf25283420c0c">
         <input type="hidden" name="field" value="prod_reviewer_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">기술검토(1차) 담당자
@@ -855,7 +868,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/1/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="4b61b7d78aaf8e7414bd506fd6edd02f74dbe4a8329b73aa74ce9f3bd3f4f530">
+        <input type="hidden" name="_csrf_token" value="cb7afe076ef1063a66570a873d832a7bf6c4296a94667fd8d98bf25283420c0c">
         <input type="hidden" name="field" value="maint_reviewer_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">기술검토(2차) 담당자
@@ -872,7 +885,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/1/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="4b61b7d78aaf8e7414bd506fd6edd02f74dbe4a8329b73aa74ce9f3bd3f4f530">
+        <input type="hidden" name="_csrf_token" value="cb7afe076ef1063a66570a873d832a7bf6c4296a94667fd8d98bf25283420c0c">
         <input type="hidden" name="field" value="maint_staff_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">정비담당자
@@ -889,7 +902,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/1/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="4b61b7d78aaf8e7414bd506fd6edd02f74dbe4a8329b73aa74ce9f3bd3f4f530">
+        <input type="hidden" name="_csrf_token" value="cb7afe076ef1063a66570a873d832a7bf6c4296a94667fd8d98bf25283420c0c">
         <input type="hidden" name="field" value="plan_approver_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">개선계획 승인자
@@ -906,7 +919,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/1/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="4b61b7d78aaf8e7414bd506fd6edd02f74dbe4a8329b73aa74ce9f3bd3f4f530">
+        <input type="hidden" name="_csrf_token" value="cb7afe076ef1063a66570a873d832a7bf6c4296a94667fd8d98bf25283420c0c">
         <input type="hidden" name="field" value="sim_approver_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">Simulation Test 승인자
@@ -980,6 +993,7 @@ function initUserSearchSelect(root) {
 }
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.user-search-select').forEach(initUserSearchSelect);
+  initCommitteeForm();
 });
 // 필수 지정 항목 미선택 시 제출 차단
 document.addEventListener('submit', (e) => {
@@ -999,6 +1013,76 @@ document.addEventListener('submit', (e) => {
 
 const CR_ID = 1;
 const CR_STATUS = "DRAFT";
+const COMMITTEE_USERS = [1].map((id) => {
+  const rows = ["\ubbf8\ub9ac\ubcf4\uae30 \uad00\ub9ac\uc790"];
+  const departments = [null];
+  const hrDepartments = [null];
+  const jobTitles = [null];
+  const index = [1].indexOf(id);
+  return {id, name: rows[index], department: hrDepartments[index] || departments[index] || '', jobTitle: jobTitles[index] || ''};
+});
+const COMMITTEE_SAVED = {};
+let committeeAttendeeIds = new Set((COMMITTEE_SAVED.attendee_ids || []).map(Number));
+function escapeCommitteeHtml(value) {
+  return String(value == null ? '' : value).replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+}
+
+function renderCommitteeAttendees() {
+  const chips = document.getElementById('committee-attendee-chips');
+  const results = document.getElementById('committee-attendee-results');
+  if (!chips) return;
+  const selected = COMMITTEE_USERS.filter(user => committeeAttendeeIds.has(user.id));
+  chips.innerHTML = selected.length ? selected.map(user => `<span class="committee-attendee-chip">${escapeCommitteeHtml(user.name)} <small>${escapeCommitteeHtml(user.department || '소속 없음')}</small><button type="button" aria-label="${escapeCommitteeHtml(user.name)} 제외" onclick="toggleCommitteeAttendee(${user.id})">×</button></span>`).join('') : '<span class="committee-empty">선택된 참석자가 없습니다.</span>';
+  document.getElementById('committee-attendee-ids').value = JSON.stringify(selected.map(user => user.id));
+  if (results) filterCommitteeAttendees();
+  const count = document.getElementById('committee-attendee-count');
+  if (count) count.textContent = `${selected.length}명 선택`;
+}
+function toggleCommitteeAttendee(id) {
+  committeeAttendeeIds.has(id) ? committeeAttendeeIds.delete(id) : committeeAttendeeIds.add(id);
+  renderCommitteeAttendees();
+}
+function filterCommitteeAttendees() {
+  const results = document.getElementById('committee-attendee-results');
+  if (!results) return;
+  const input = document.getElementById('committee-attendee-search');
+  const query = (input ? input.value : '').trim().toLowerCase();
+  const users = COMMITTEE_USERS.filter(user => `${user.name} ${user.department} ${user.jobTitle}`.toLowerCase().includes(query));
+  results.innerHTML = users.length ? users.map(user => `<label><input type="checkbox" ${committeeAttendeeIds.has(user.id) ? 'checked' : ''} onchange="toggleCommitteeAttendee(${user.id})"><span><strong>${escapeCommitteeHtml(user.name)}</strong><small>${escapeCommitteeHtml(user.department || '소속 없음')}${user.jobTitle ? ' · ' + escapeCommitteeHtml(user.jobTitle) : ''}</small></span></label>`).join('') : '<div class="committee-empty">일치하는 인사정보가 없습니다.</div>';
+}
+function openCommitteeAttendeePicker() {
+  openModal('modal-committee-attendees');
+  filterCommitteeAttendees();
+  setTimeout(() => document.getElementById('committee-attendee-search').focus(), 0);
+}
+function addCommitteeOpinion(department = '안전', opinion = '') {
+  const root = document.getElementById('committee-opinion-rows');
+  if (!root || root.children.length >= 20) return;
+  const row = document.createElement('div');
+  row.className = 'committee-opinion-row';
+  row.innerHTML = `<select class="form-control" aria-label="부서 선택">${['안전','생산','정비','기타'].map(item => `<option ${item === department ? 'selected' : ''}>${item}</option>`).join('')}</select><textarea class="form-control" rows="2" maxlength="2000" aria-label="부서 의견" placeholder="검토 의견을 입력하세요"></textarea><button type="button" class="btn btn-sm btn-ghost" aria-label="의견 삭제">삭제</button>`;
+  row.querySelector('textarea').value = opinion;
+  row.querySelector('button').addEventListener('click', () => row.remove());
+  root.appendChild(row);
+}
+function initCommitteeForm() {
+  if (!document.getElementById('form-committee_form')) return;
+  renderCommitteeAttendees();
+  (COMMITTEE_SAVED.opinions || []).forEach(item => addCommitteeOpinion(item.department, item.opinion));
+  if (!(COMMITTEE_SAVED.opinions || []).length) ['안전', '생산', '정비', '기타'].forEach(item => addCommitteeOpinion(item));
+  const search = document.getElementById('committee-attendee-search');
+  if (search) search.addEventListener('input', filterCommitteeAttendees);
+}
+async function saveCommitteeForm() {
+  const form = document.getElementById('form-committee_form');
+  if (!form.reportValidity()) return;
+  if (!committeeAttendeeIds.size) { showToast('❌ 참석자를 한 명 이상 선택하세요.', true); return; }
+  const opinions = Array.from(document.querySelectorAll('.committee-opinion-row')).map(row => ({department: row.querySelector('select').value, opinion: row.querySelector('textarea').value.trim()}));
+  document.getElementById('committee-opinions').value = JSON.stringify(opinions);
+  const response = await fetch(`/cr/${CR_ID}/document/committee_form`, {method:'POST', body:new FormData(form)});
+  const data = await response.json();
+  showToast((data.ok ? '✅ ' : '❌ ') + (data.msg || '저장 중 오류가 발생했습니다.'), !data.ok);
+}
 
 // ──────────────────────────────────────────────────────────
 // 보기 모드 — 전체 보기 / 스텝별 보기
@@ -1393,7 +1477,7 @@ function attachFormTemplate(tplId, name) {
       <button type="button" class="modal-close" onclick="closeLinkAttach()" aria-label="닫기">×</button>
     </div>
     <form method="POST" id="link-attach-form" class="link-attach-form">
-      <input type="hidden" name="_csrf_token" value="4b61b7d78aaf8e7414bd506fd6edd02f74dbe4a8329b73aa74ce9f3bd3f4f530">
+      <input type="hidden" name="_csrf_token" value="cb7afe076ef1063a66570a873d832a7bf6c4296a94667fd8d98bf25283420c0c">
       <input type="hidden" name="attach_type" value="committee_doc">
 
       <div class="link-kind-selector" aria-label="링크 유형 선택">
@@ -1547,7 +1631,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       for (const input of inputs) {
         const response = await fetch('/admin/ui-text', {
-          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'4b61b7d78aaf8e7414bd506fd6edd02f74dbe4a8329b73aa74ce9f3bd3f4f530'},
+          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'cb7afe076ef1063a66570a873d832a7bf6c4296a94667fd8d98bf25283420c0c'},
           body:JSON.stringify({key:input.dataset.uiTextKey,value:input.value.trim()})
         });
         const result = await response.json();
@@ -1653,7 +1737,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="adminCrDeleteModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="adminCrDeleteTitle">
   <div class="modal-box" style="max-width:520px;">
     <form id="adminCrDeleteForm" method="POST">
-      <input type="hidden" name="_csrf_token" value="4b61b7d78aaf8e7414bd506fd6edd02f74dbe4a8329b73aa74ce9f3bd3f4f530">
+      <input type="hidden" name="_csrf_token" value="cb7afe076ef1063a66570a873d832a7bf6c4296a94667fd8d98bf25283420c0c">
       <div class="modal-header">
         <div>
           <h3 id="adminCrDeleteTitle" style="color:#B42318;">🗑 변경요청 삭제</h3>
@@ -1802,7 +1886,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = '4b61b7d78aaf8e7414bd506fd6edd02f74dbe4a8329b73aa74ce9f3bd3f4f530';
+  var token = 'cb7afe076ef1063a66570a873d832a7bf6c4296a94667fd8d98bf25283420c0c';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -4479,7 +4563,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '4b61b7d78aaf8e7414bd506fd6edd02f74dbe4a8329b73aa74ce9f3bd3f4f530' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'cb7afe076ef1063a66570a873d832a7bf6c4296a94667fd8d98bf25283420c0c' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

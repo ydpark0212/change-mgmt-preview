@@ -73,7 +73,7 @@
 .cr-preserved-action-panel :is(input,textarea,button)[disabled]{opacity:1;pointer-events:none}
 .cr-preserved-action-panel .grade-option input:checked+label{border-color:var(--posco-500);background:#eef6ff;color:var(--posco-700)}
 .cr-step-content .review-result-card>.card-title{display:none}
-.cr-step-completion-card>.cr-completion-head{display:none}
+.cr-step-completion-card>.cr-completion-head{display:grid;grid-template-columns:minmax(220px,1fr) minmax(260px,auto);align-items:start;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border)}
 .cr-plan-submit-actions{display:flex;justify-content:flex-end}
 .cr-plan-attachments{padding:10px 16px!important}
 .cr-plan-attachments .action-panel-title{margin:0}
@@ -199,6 +199,7 @@
 .cr-completion-subsection h4 { margin: 0 0 9px; font-size: 13px; }
 
 @media (max-width: 700px) {
+  .cr-step-completion-card > .cr-completion-head { grid-template-columns: 1fr; }
   .cr-completion-head { flex-direction: column; }
   .cr-completion-meta { justify-content: flex-start; }
   .cr-completion-comment { min-width: 0; max-width: none; width: 100%; }

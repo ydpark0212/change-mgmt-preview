@@ -83,21 +83,21 @@
 .cr-plan-attachment-row .cr-step-attachment-actions{margin-top:0;flex-wrap:nowrap}
 .cr-plan-route-panel .action-panel-title{margin-bottom:8px}
 .cr-plan-route-form .form-group{margin:8px 0}.cr-plan-route-actions{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
-.cr-step5-route-row{display:grid;grid-template-columns:auto minmax(210px,1fr) minmax(180px,1fr) auto;align-items:center;gap:8px}
+.cr-step5-route-row{display:grid;grid-template-columns:auto minmax(280px,1fr) auto;align-items:stretch;gap:8px}
 .cr-step5-grade{display:flex;align-items:center;gap:7px;white-space:nowrap}.cr-step5-grade span{color:var(--text-muted);font-size:10px}.cr-step5-grade strong{font-size:13px}
-.cr-step5-guidance{padding:8px 10px;border:1px solid #f0cf9d;border-radius:7px;background:#fff8ed;color:#c76700;font-size:10px;white-space:nowrap}
+.cr-step5-guidance{display:flex;align-items:center;padding:8px 10px;border:1px solid #f0cf9d;border-radius:7px;background:#fff8ed;color:#c76700;font-size:10px;white-space:nowrap}.cr-step5-route-row>.btn{min-height:36px}
 .cr-workflow-step[data-workflow-step="COMMITTEE"] .wfs-history strong{color:var(--text-muted)}
 .committee-form{display:grid;gap:10px;margin:10px 0 14px}
 .committee-form-section{padding:12px;border:1px solid #c9d9eb;border-radius:9px;background:#f8fbff}
 .committee-section-head{display:flex;align-items:center;gap:9px;margin-bottom:10px}
 .committee-section-head>span{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;background:var(--posco-600);color:#fff;font-weight:800}
 .committee-section-head>div{display:flex;flex:1;flex-direction:column}.committee-section-head strong{color:var(--posco-900);font-size:13px}.committee-section-head small{color:var(--text-muted);font-size:10px}
-.committee-meta-grid,.committee-request-grid{display:grid;grid-template-columns:1fr 2fr;gap:10px}.committee-meta-grid .form-group{margin:0}
-.committee-attendee-chips{display:flex;min-height:34px;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:6px;padding:5px;border:1px solid #a9c9ee;border-radius:7px;background:#fff}
+.committee-meta-grid{display:grid;grid-template-columns:1fr 2fr;gap:10px}.committee-meta-grid .form-group{margin:0}.committee-request-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.committee-attendee-field{display:flex;min-height:38px;align-items:center;gap:5px;padding:4px 5px;border:1px solid #a9c9ee;border-radius:7px;background:#fff;cursor:text}.committee-attendee-field:focus-within{border-color:var(--posco-500);box-shadow:0 0 0 3px rgba(0,94,184,.12)}.committee-attendee-chips{display:flex;min-width:0;flex:1;align-items:center;gap:5px;flex-wrap:wrap}.committee-attendee-search-button{display:grid;flex:0 0 32px;place-items:center;width:32px;height:32px;border:0;border-radius:6px;background:#edf5ff;color:var(--posco-700);cursor:pointer}.committee-attendee-search-button:hover{background:#dbeafe}.committee-meta-grid .form-label small{color:var(--text-muted);font-weight:500}
 .committee-attendee-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 6px;border-radius:14px;background:#e7f1fc;color:var(--posco-800);font-weight:700}.committee-attendee-chip small{color:var(--text-muted);font-weight:500}.committee-attendee-chip button{border:0;background:none;color:#64748b;cursor:pointer;font-size:14px}
 .committee-empty{padding:8px;color:var(--text-muted);font-size:11px}
 .committee-request-grid>div{padding:10px;border:1px solid #d8e3ef;border-radius:7px;background:#fff}.committee-request-grid label{display:block;margin-bottom:6px;color:var(--posco-700);font-weight:800}.committee-request-grid p{margin:0;white-space:pre-line;line-height:1.65}
-.committee-opinion-rows{display:grid;gap:6px}.committee-opinion-row{display:grid;grid-template-columns:110px 1fr auto;align-items:start;gap:7px}.committee-opinion-row textarea{min-height:54px!important}
+.committee-opinion-rows{display:grid;gap:6px}.committee-opinion-row{display:grid;grid-template-columns:110px 1fr 52px;align-items:stretch;gap:7px}.committee-opinion-row>.form-control,.committee-opinion-row>.btn{height:54px;min-height:54px!important}.committee-opinion-row textarea{resize:vertical}
 .committee-chair-opinion{margin:10px 0 0;padding-top:10px;border-top:1px solid #d8e3ef}.committee-form-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--text-muted);font-size:10px}
 .committee-attendee-modal{width:min(680px,calc(100vw - 32px))}.committee-attendee-results{display:grid;max-height:360px;overflow:auto;margin-top:10px;border:1px solid var(--border);border-radius:8px}.committee-attendee-results label{display:flex;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--border);cursor:pointer}.committee-attendee-results label:last-child{border-bottom:0}.committee-attendee-results label:hover{background:#f0f7ff}.committee-attendee-results span{display:flex;flex-direction:column}.committee-attendee-results small{color:var(--text-muted)}
 @media(max-width:900px){.committee-meta-grid,.committee-request-grid{grid-template-columns:1fr}.committee-opinion-row{grid-template-columns:90px 1fr}.committee-opinion-row .btn{grid-column:2;justify-self:end}}

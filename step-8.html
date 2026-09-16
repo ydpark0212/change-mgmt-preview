@@ -201,7 +201,7 @@
       &nbsp;제어 프로그램 개선 및 안전성 검증
     </div>
     <div class="page-subtitle" style="margin-top:4px">
-      등록일 2026-09-16 15:24 · 신청자 미리보기 관리자
+      등록일 2026-09-16 15:40 · 신청자 미리보기 관리자
       ·  
       · 압연 제어설비
     </div>
@@ -813,7 +813,7 @@
   </div>
   
   <form method="POST" action="/cr/8/action">
-      <input type="hidden" name="_csrf_token" value="043d9b6d2eaba8282259198dac12de293715bb4d35be436dd26525b4bbf96597">
+      <input type="hidden" name="_csrf_token" value="fc241a21dadbdb8a20732cdc934685f32279212c861c72eb09ea29f35fa01449">
     <input type="hidden" name="action" value="sim_approve">
     <div class="form-group">
       <label class="form-label">승인 코멘트</label>
@@ -930,7 +930,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/8/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="043d9b6d2eaba8282259198dac12de293715bb4d35be436dd26525b4bbf96597">
+        <input type="hidden" name="_csrf_token" value="fc241a21dadbdb8a20732cdc934685f32279212c861c72eb09ea29f35fa01449">
         <input type="hidden" name="field" value="prod_reviewer_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">기술검토(1차) 담당자
@@ -947,7 +947,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/8/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="043d9b6d2eaba8282259198dac12de293715bb4d35be436dd26525b4bbf96597">
+        <input type="hidden" name="_csrf_token" value="fc241a21dadbdb8a20732cdc934685f32279212c861c72eb09ea29f35fa01449">
         <input type="hidden" name="field" value="maint_reviewer_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">기술검토(2차) 담당자
@@ -964,7 +964,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/8/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="043d9b6d2eaba8282259198dac12de293715bb4d35be436dd26525b4bbf96597">
+        <input type="hidden" name="_csrf_token" value="fc241a21dadbdb8a20732cdc934685f32279212c861c72eb09ea29f35fa01449">
         <input type="hidden" name="field" value="maint_staff_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">정비담당자
@@ -981,7 +981,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/8/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="043d9b6d2eaba8282259198dac12de293715bb4d35be436dd26525b4bbf96597">
+        <input type="hidden" name="_csrf_token" value="fc241a21dadbdb8a20732cdc934685f32279212c861c72eb09ea29f35fa01449">
         <input type="hidden" name="field" value="plan_approver_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">개선계획 승인자
@@ -998,7 +998,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/8/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="043d9b6d2eaba8282259198dac12de293715bb4d35be436dd26525b4bbf96597">
+        <input type="hidden" name="_csrf_token" value="fc241a21dadbdb8a20732cdc934685f32279212c861c72eb09ea29f35fa01449">
         <input type="hidden" name="field" value="sim_approver_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">Simulation Test 승인자
@@ -1564,7 +1564,7 @@ function attachFormTemplate(tplId, name) {
       <button type="button" class="modal-close" onclick="closeLinkAttach()" aria-label="닫기">×</button>
     </div>
     <form method="POST" id="link-attach-form" class="link-attach-form">
-      <input type="hidden" name="_csrf_token" value="043d9b6d2eaba8282259198dac12de293715bb4d35be436dd26525b4bbf96597">
+      <input type="hidden" name="_csrf_token" value="fc241a21dadbdb8a20732cdc934685f32279212c861c72eb09ea29f35fa01449">
       <input type="hidden" name="attach_type" value="committee_doc">
 
       <div class="link-kind-selector" aria-label="링크 유형 선택">
@@ -1718,7 +1718,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       for (const input of inputs) {
         const response = await fetch('/admin/ui-text', {
-          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'043d9b6d2eaba8282259198dac12de293715bb4d35be436dd26525b4bbf96597'},
+          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'fc241a21dadbdb8a20732cdc934685f32279212c861c72eb09ea29f35fa01449'},
           body:JSON.stringify({key:input.dataset.uiTextKey,value:input.value.trim()})
         });
         const result = await response.json();
@@ -1824,7 +1824,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="adminCrDeleteModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="adminCrDeleteTitle">
   <div class="modal-box" style="max-width:520px;">
     <form id="adminCrDeleteForm" method="POST">
-      <input type="hidden" name="_csrf_token" value="043d9b6d2eaba8282259198dac12de293715bb4d35be436dd26525b4bbf96597">
+      <input type="hidden" name="_csrf_token" value="fc241a21dadbdb8a20732cdc934685f32279212c861c72eb09ea29f35fa01449">
       <div class="modal-header">
         <div>
           <h3 id="adminCrDeleteTitle" style="color:#B42318;">🗑 변경요청 삭제</h3>
@@ -1973,7 +1973,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = '043d9b6d2eaba8282259198dac12de293715bb4d35be436dd26525b4bbf96597';
+  var token = 'fc241a21dadbdb8a20732cdc934685f32279212c861c72eb09ea29f35fa01449';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -2473,15 +2473,19 @@ function showToast(msg, isErr) {
           
           
           
-          <button type="button" class="guide-toc-step" data-guide-step="cr-sim" onclick="showGuideStep('cr-sim')"><span class="gts-num">⑦</span><span class="gts-text" data-guide-text-key="cr-sim">Simulation Test 요청·승인</span></button>
+          <button type="button" class="guide-toc-step" data-guide-step="cr-sim-request" onclick="showGuideStep('cr-sim-request')"><span class="gts-num">⑦</span><span class="gts-text" data-guide-text-key="cr-sim-request">개선진행·Simulation Test 요청 (정비담당자)</span></button>
           
           
           
-          <button type="button" class="guide-toc-step" data-guide-step="cr-commissioning" onclick="showGuideStep('cr-commissioning')"><span class="gts-num">⑧</span><span class="gts-text" data-guide-text-key="cr-commissioning">교육·시운전 완료 (발의담당자)</span></button>
+          <button type="button" class="guide-toc-step" data-guide-step="cr-sim-approve" onclick="showGuideStep('cr-sim-approve')"><span class="gts-num">⑧</span><span class="gts-text" data-guide-text-key="cr-sim-approve">Simulation Test 승인 (전기정비 파트장)</span></button>
           
           
           
-          <button type="button" class="guide-toc-step" data-guide-step="cr-completed" onclick="showGuideStep('cr-completed')"><span class="gts-num">⑨</span><span class="gts-text" data-guide-text-key="cr-completed">프로그램 백업·최종 완료 (정비담당자)</span></button>
+          <button type="button" class="guide-toc-step" data-guide-step="cr-commissioning" onclick="showGuideStep('cr-commissioning')"><span class="gts-num">⑨</span><span class="gts-text" data-guide-text-key="cr-commissioning">교육·시운전 완료 (발의담당자)</span></button>
+          
+          
+          
+          <button type="button" class="guide-toc-step" data-guide-step="cr-completed" onclick="showGuideStep('cr-completed')"><span class="gts-num">⑩</span><span class="gts-text" data-guide-text-key="cr-completed">프로그램 백업·최종 완료 (정비담당자)</span></button>
           
           
           
@@ -2807,13 +2811,13 @@ function showToast(msg, isErr) {
             
             <div class="guide-slide" data-guide-step="cr-committee" style="display:none;">
               <div class="guide-slide-title">⑤ 상위 전결 승인 (1·2등급)</div>
-              <div class="guide-slide-desc">1등급은 생산부장, 2등급은 공장장이 개선계획과 검토자료를 확인해 전결 승인합니다.</div>
+              <div class="guide-slide-desc">위원회 일자와 참석자를 등록하고 기본정보·개선요청서·개선계획서를 확인한 뒤 1등급은 생산부장, 2등급은 공장장이 전결 승인합니다.</div>
               
               <div class="guide-practice-grid">
                 
                 <section class="guide-practice-card guide-practice-checks">
                   <div class="guide-practice-label">실무 확인사항</div>
-                  <ul><li>1등급 생산부장 / 2등급 공장장 배정 확인</li><li>상위 전결 검토자료 첨부</li><li>개선계획서와 계획 첨부자료 확인</li></ul>
+                  <ul><li>위원회 일자와 참석자(인사정보 검색, 최대 15명) 확인</li><li>기본정보·개선요청서·개선계획서 자동기입 내용 확인</li><li>안전·생산·정비·기타 부서별 검토 의견과 변경관리 위원장 의견 작성</li><li>위원회 양식 저장 후 파일 또는 URL/ECM 검토자료 첨부</li><li>1등급 생산부장 / 2등급 공장장 배정 확인</li></ul>
                 </section>
                 
                 
@@ -2834,7 +2838,7 @@ function showToast(msg, isErr) {
               <div class="guide-caution-box">
                 <div class="guide-caution-title">⚠ 주의사항 · 인터록</div>
                 <ul>
-                  <li>승인권자가 직접 처리하거나, 서면 승인자료가 있으면 발의담당자가 승인 결과를 시스템에 반영할 수 있습니다.</li><li>1·2등급은 상위 전결 승인을 생략할 수 없습니다.</li>
+                  <li>참석자는 최소 1명, 최대 15명이며 위원회 양식과 필수 검토자료를 모두 저장해야 승인할 수 있습니다.</li><li>승인권자가 직접 처리하거나, 서면 승인자료가 있으면 발의담당자가 승인 결과를 시스템에 반영할 수 있습니다.</li><li>1·2등급은 상위 전결 승인을 생략할 수 없습니다.</li>
                 </ul>
               </div>
               
@@ -2899,21 +2903,68 @@ function showToast(msg, isErr) {
             
             
             
-            <div class="guide-slide" data-guide-step="cr-sim" style="display:none;">
-              <div class="guide-slide-title">⑦ Simulation Test 요청·승인</div>
-              <div class="guide-slide-desc">정비담당자가 실제 전기정비 파트장을 지정해 테스트를 요청하고, 지정 승인자가 결과를 확인합니다.</div>
+            <div class="guide-slide" data-guide-step="cr-sim-request" style="display:none;">
+              <div class="guide-slide-title">⑦ 개선진행·Simulation Test 요청 (정비담당자)</div>
+              <div class="guide-slide-desc">개선작업을 진행한 정비담당자가 전기정비 파트장을 승인자로 지정하고 시험 범위와 요청 의견을 작성합니다.</div>
               
               <div class="guide-practice-grid">
                 
                 <section class="guide-practice-card guide-practice-checks">
                   <div class="guide-practice-label">실무 확인사항</div>
-                  <ul><li>정비담당자의 요청 선행</li><li>Simulation Test 승인자 이름 확인</li><li>시험 결과·복구 가능 여부 확인</li></ul>
+                  <ul><li>개선계획과 롤백 절차에 따라 작업 완료</li><li>Simulation Test 승인자 지정</li><li>테스트 범위·확인사항을 요청 코멘트에 기록</li></ul>
                 </section>
                 
                 
                 <section class="guide-practice-card guide-practice-done">
                   <div class="guide-practice-label">완료 기준</div>
-                  <p>지정 승인자의 승인 후 시운전 단계로 이동</p>
+                  <p>Simulation Test 요청이 기록되고 지정 승인자의 내 작업에 배정</p>
+                </section>
+                
+                
+                <section class="guide-practice-card guide-practice-next">
+                  <div class="guide-practice-label">다음 처리</div>
+                  <p>지정 전기정비 파트장의 Simulation Test 승인</p>
+                </section>
+                
+              </div>
+              
+              
+              <div class="guide-caution-box">
+                <div class="guide-caution-title">⚠ 주의사항 · 인터록</div>
+                <ul>
+                  <li>요청 전에는 승인자의 내 작업에 표시되지 않습니다. 완료 후에도 승인자와 요청 코멘트가 STEP 7에 남습니다.</li>
+                </ul>
+              </div>
+              
+              <div class="guide-slide-img-outer">
+                <div class="guide-slide-img-wrap">
+                  <img src="static/guide/screenshots/cr_detail_sim_test.png" alt="개선진행·Simulation Test 요청 (정비담당자)">
+                  
+                  <div class="guide-highlight" style="top:72.5%; left:40.8%; width:56.9%; height:15.1%;">
+                    <div class="guide-highlight-label">승인자 지정·시험 요청</div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            
+            
+            
+            <div class="guide-slide" data-guide-step="cr-sim-approve" style="display:none;">
+              <div class="guide-slide-title">⑧ Simulation Test 승인 (전기정비 파트장)</div>
+              <div class="guide-slide-desc">지정 승인자가 시험 결과와 복구 가능 여부를 확인하고 승인 의견을 남긴 뒤 시운전 단계로 이동합니다.</div>
+              
+              <div class="guide-practice-grid">
+                
+                <section class="guide-practice-card guide-practice-checks">
+                  <div class="guide-practice-label">실무 확인사항</div>
+                  <ul><li>요청된 테스트 범위와 결과 확인</li><li>인터록·자동복구·비상정지 및 롤백 가능 여부 확인</li><li>승인 코멘트 작성</li></ul>
+                </section>
+                
+                
+                <section class="guide-practice-card guide-practice-done">
+                  <div class="guide-practice-label">완료 기준</div>
+                  <p>Simulation Test 승인 내용이 기록되고 시운전 단계로 이동</p>
                 </section>
                 
                 
@@ -2928,16 +2979,16 @@ function showToast(msg, isErr) {
               <div class="guide-caution-box">
                 <div class="guide-caution-title">⚠ 주의사항 · 인터록</div>
                 <ul>
-                  <li>요청 전에는 승인자의 내 작업에 표시되지 않습니다.</li>
+                  <li>지정된 승인자 또는 전체업무 권한자만 승인할 수 있습니다. 승인 코멘트는 STEP 8에 보존됩니다.</li>
                 </ul>
               </div>
               
               <div class="guide-slide-img-outer">
                 <div class="guide-slide-img-wrap">
-                  <img src="static/guide/screenshots/cr_detail_sim_test.png" alt="Simulation Test 요청·승인">
+                  <img src="static/guide/screenshots/cr_detail_sim_test.png" alt="Simulation Test 승인 (전기정비 파트장)">
                   
                   <div class="guide-highlight" style="top:72.5%; left:40.8%; width:56.9%; height:15.1%;">
-                    <div class="guide-highlight-label">요청 후 지정 승인자 승인</div>
+                    <div class="guide-highlight-label">시험 결과 확인·승인</div>
                   </div>
                   
                 </div>
@@ -2947,7 +2998,7 @@ function showToast(msg, isErr) {
             
             
             <div class="guide-slide" data-guide-step="cr-commissioning" style="display:none;">
-              <div class="guide-slide-title">⑧ 교육·시운전 완료 (발의담당자)</div>
+              <div class="guide-slide-title">⑨ 교육·시운전 완료 (발의담당자)</div>
               <div class="guide-slide-desc">사용자 교육과 시운전 증빙을 준비하고 관련 표준 및 기준의 제·개정 필요 여부까지 확인한 뒤 시운전 완료를 처리합니다.</div>
               
               <div class="guide-practice-grid">
@@ -2994,7 +3045,7 @@ function showToast(msg, isErr) {
             
             
             <div class="guide-slide" data-guide-step="cr-completed" style="display:none;">
-              <div class="guide-slide-title">⑨ 프로그램 백업·최종 완료 (정비담당자)</div>
+              <div class="guide-slide-title">⑩ 프로그램 백업·최종 완료 (정비담당자)</div>
               <div class="guide-slide-desc">최종 프로그램을 백업하고 경로·비고·확인자료를 남긴 뒤 백업 완료를 처리합니다.</div>
               
               <div class="guide-practice-grid">
@@ -3013,7 +3064,7 @@ function showToast(msg, isErr) {
                 
                 <section class="guide-practice-card guide-practice-next">
                   <div class="guide-practice-label">다음 처리</div>
-                  <p>전체 이력·문서·첨부자료 최종 확인</p>
+                  <p>STEP 5~10을 선택해 당시 작성 내용·문서·첨부자료 최종 확인</p>
                 </section>
                 
               </div>
@@ -3022,7 +3073,7 @@ function showToast(msg, isErr) {
               <div class="guide-caution-box">
                 <div class="guide-caution-title">⚠ 주의사항 · 인터록</div>
                 <ul>
-                  <li>시운전 완료만으로는 최종 완료가 아닙니다. 정비담당자의 백업 완료가 필요합니다.</li>
+                  <li>시운전 완료만으로는 최종 완료가 아닙니다. 정비담당자의 백업 완료가 필요합니다.</li><li>완료 후에도 STEP 5~10의 입력 화면과 작성 내용은 읽기 전용으로 유지됩니다.</li>
                 </ul>
               </div>
               
@@ -3858,7 +3909,7 @@ function showToast(msg, isErr) {
         ['3등급 최종판정 선택', '#g2-3', 'grade'],
         ['별도 위험성평가표 미적용 확인', '.grade-selection-group', 'inspect', '', 2800]
       ],
-      '기술검토(1차) 완료': [
+      'STEP 2 · 기술검토(1차)': [
         ['1차 판정등급 선택', '#g1-' + gradeValue, 'grade'],
         ['안전·환경 위험성 평가', '#r1-freq-safety', 'risk-row', 'r1:safety'],
         ['생산 위험성 평가', '#r1-freq-prod', 'risk-row', 'r1:prod'],
@@ -3867,7 +3918,7 @@ function showToast(msg, isErr) {
         ['검토 의견 작성', 'form:has(input[value="complete_review1"]) textarea[name="comment"]', 'type', '생산 영향과 안전조치를 확인했습니다.'],
         ['기술검토(1차) 완료', 'form:has(input[value="complete_review1"]) button[type="submit"]', 'click']
       ],
-      '기술검토(2차) 및 등급판정': [
+      'STEP 3 · 기술검토(2차)': [
         ['최종 판정등급 선택', '#g2-' + gradeValue, 'grade'],
         ['안전·환경 위험성 재평가', '#r2-freq-safety', 'risk-row', 'r2:safety'],
         ['생산 위험성 재평가', '#r2-freq-prod', 'risk-row', 'r2:prod'],
@@ -3876,14 +3927,13 @@ function showToast(msg, isErr) {
         ['최종 검토의견 작성', 'form:has(input[value="complete_review2"]) textarea[name="comment"]', 'type', '정비 작업범위와 복구계획을 확인했습니다.'],
         ['기술검토(2차) 완료', 'form:has(input[value="complete_review2"]) button[type="submit"]', 'click']
       ],
-      '개선계획서 작성·첨부': [
-        ['개선계획서 열기', 'button[onclick*="modal-plan_form"]', 'click-stay'],
-        ['작업 상세계획 작성', '#modal-plan_form textarea[name="work_plan"]', 'type', '기존 프로그램 백업 → 로직 수정 → Simulation Test → 현장 시운전'],
-        ['필요 자재 작성', '#modal-plan_form textarea[name="materials"]', 'type', '노트북, 통신 케이블, 최신 PLC 백업본'],
-        ['작업시간 입력', '#modal-plan_form input[name="work_hours"]', 'type', '4시간'],
-        ['담당자 입력', '#modal-plan_form input[name="worker"]', 'type', '김정비'],
-        ['롤백계획 작성', '#modal-plan_form textarea[name="rollback"]', 'type', '이상 발생 시 기존 프로그램으로 즉시 복구'],
-        ['개선계획서 저장', '#modal-plan_form .modal-footer .btn-primary', 'demo-save', 'modal-plan_form'],
+      'STEP 4 · 개선계획': [
+        ['작업 상세계획 작성', '#form-plan_form textarea[name="work_plan"]', 'type', '기존 프로그램 백업 → 로직 수정 → Simulation Test → 현장 시운전'],
+        ['필요 자재 작성', '#form-plan_form textarea[name="materials"]', 'type', '노트북, 통신 케이블, 최신 PLC 백업본'],
+        ['작업시간 입력', '#form-plan_form input[name="work_hours"]', 'type', '4시간'],
+        ['담당자 입력', '#form-plan_form input[name="worker"]', 'type', '김정비'],
+        ['롤백계획 작성', '#form-plan_form textarea[name="rollback"]', 'type', '이상 발생 시 기존 프로그램으로 즉시 복구'],
+        ['개선계획서 저장', '#form-plan_form button[onclick*="saveDocument(\'plan_form\'"]', 'inspect', '', 1800],
         ['양식 다운로드 기능 확인', 'button[onclick="openFormPicker(\'plan_doc\')"]', 'click-stay'],
         ['양식 탭 설명', '#form-picker-modal .modal-box', 'inspect', '', 3200],
         ['양식 목록 닫기', '#form-picker-modal .modal-close', 'click'],
@@ -3893,6 +3943,15 @@ function showToast(msg, isErr) {
         ['ECM 문서 ID 설명', '#lk-ecm-section', 'inspect', '', 3200],
         ['URL·ECM 팝업 닫기', '#link-attach-modal .modal-close', 'click'],
         ['계획 첨부자료 등록', '.upload-zone:has(#upload-plan)', 'file', '개선계획서_첨부자료.pdf']
+      ],
+      'STEP 5 · 변경관리위원회 승인': [
+        ['위원회 일자 입력', '#committee-date', 'type', '2026-09-17'],
+        ['참석자 인사정보 검색 확인', '.committee-attendee-field', 'inspect', '', 1800],
+        ['부서별 검토 의견 확인', '#committee-opinion-rows', 'inspect', '', 1800],
+        ['위원장 의견 작성', '#committee-chair-opinion', 'type', '위원회 검토 결과 승인합니다.'],
+        ['위원회 양식 저장', 'button[onclick="saveCommitteeForm()"]', 'inspect', '', 1800],
+        ['위원회 검토자료 첨부', '.upload-zone:has(#upload-committee)', 'file', '위원회_검토자료.pdf'],
+        ['변경관리위원회 승인', 'form:has(input[value="committee_approve"]) button[type="submit"]', 'click']
       ],
       '개선계획서 제출': [
         ['계획서·첨부자료 확인', '[data-step-group*="GRADED"]', 'inspect', '', 1800],
@@ -3907,17 +3966,17 @@ function showToast(msg, isErr) {
         ['3등급 내부 전결 경로 확인', '[data-step-group="GRADED"]', 'inspect', '', 2200],
         ['상위 전결 생략·이관', 'form:has(input[value="skip_committee"]) button[type="submit"]', 'click']
       ],
-      'Simulation Test 요청': [
+      'STEP 7 · 개선진행': [
         ['Sim Test 승인자 지정', '.user-search-select:has(input[name="sim_approver_id"]) .uss-input', 'user'],
         ['테스트 범위 작성', 'form:has(input[value="sim_request"]) textarea[name="comment"]', 'type', '백업본 비교, 인터록 및 자동복구 로직을 시험합니다.'],
         ['Simulation Test 요청', 'form:has(input[value="sim_request"]) button[type="submit"]', 'click']
       ],
-      'Simulation Test 승인': [
+      'STEP 8 · Simulation Test': [
         ['시험결과 확인', '[data-step-group="SIM_TEST"]', 'inspect', '', 1800],
         ['승인 의견 작성', 'form:has(input[value="sim_approve"]) textarea[name="comment"]', 'type', '시험 결과 이상 없음을 확인했습니다.'],
         ['Simulation Test 승인', 'form:has(input[value="sim_approve"]) button[type="submit"]', 'click']
       ],
-      '프로그램 백업 완료': [
+      'STEP 10 · 완료': [
         ['백업 확인자료 확인', '[data-step-group="COMPLETED"] .form-group', 'inspect', '', 1600],
         ['백업 경로 입력', 'form:has(input[value="backup_complete"]) input[name="backup_path"]', 'type', '\\\\NAS-SERVER\\Backup\\CR-2026-TUTORIAL'],
         ['백업 코멘트 작성', 'form:has(input[value="backup_complete"]) textarea[name="comment"]', 'type', '원본·변경본 백업 및 복구 검증을 완료했습니다.'],
@@ -3926,7 +3985,7 @@ function showToast(msg, isErr) {
     };
     if (maps[title]) {
       let actions = maps[title].map(function(action) { return action.slice(); });
-      if (tutorialGrade >= 3 && (title === '기술검토(1차) 완료' || title === '기술검토(2차) 및 등급판정')) {
+      if (tutorialGrade >= 3 && (title === 'STEP 2 · 기술검토(1차)' || title === 'STEP 3 · 기술검토(2차)')) {
         actions = actions.filter(function(action) { return action[2] !== 'risk-row'; });
       }
       return actions;
@@ -3934,7 +3993,6 @@ function showToast(msg, isErr) {
 
     if (title.indexOf('상위 전결 승인') !== -1) return [
       ['개선계획·전결자료 확인', '[data-step-group="COMMITTEE"]', 'inspect', '', 2200],
-      ['승인 의견 작성', 'form:has(input[value="committee_approve"]) textarea[name="comment"]', 'type', '계획과 안전조치 및 전결 검토자료를 확인했습니다.'],
       ['상위 전결 승인', 'form:has(input[value="committee_approve"]) button[type="submit"]', 'click']
     ];
     if (title.indexOf('내부 전결 승인') !== -1) return [
@@ -3942,16 +4000,16 @@ function showToast(msg, isErr) {
       ['승인 의견 작성', 'form:has(input[value="plan_approve"]) textarea[name="comment"]', 'type', '작업계획과 롤백 절차를 확인했습니다.'],
       ['내부 전결 승인', 'form:has(input[value="plan_approve"]) button[type="submit"]', 'click']
     ];
-    if (title === '개선내용 교육 완료') return [
+    if (title === 'STEP 9 · 시운전 — 개선내용 교육') return [
       ['교육자료·대상자 확인', '[data-step-group="COMMISSIONING"]', 'inspect', '', 2000],
       ['교육 완료 체크', 'form:has(input[value="education_check"]) button[type="submit"]', 'click']
     ];
-    if (title === '시운전 완료') return [
+    if (title === 'STEP 9 · 시운전 — 완료') return [
       ['교육·계획·확인서 점검', '[data-step-group="COMMISSIONING"]', 'inspect', '', 2400],
       ['시운전 결과 작성', 'form:has(input[value="commissioning_complete"]) textarea[name="comment"]', 'type', '인터록·알람·자동복구 및 비상정지 동작을 확인했습니다.'],
       ['시운전 완료 처리', 'form:has(input[value="commissioning_complete"]) button[type="submit"]', 'click']
     ];
-    if (title === '최종 완료 확인') return [
+    if (title === 'STEP 10 · 완료 — 작성 내용 확인') return [
       ['최종 완료 상태 확인', '.completion-message.final', 'inspect', '', 2600],
       ['문서·첨부자료 보존 확인', '[data-step-group="COMPLETED"]', 'inspect', '', 2200]
     ];
@@ -3965,35 +4023,35 @@ function showToast(msg, isErr) {
   }
 
   const COMMON_TUTORIAL = [
-    [tutorialRoleLabel('requester', '발의담당자'), '변경요청 통합 등록', 'STEP 1에서 기본정보와 개선요청서를 작성하고 필요 시 파일을 첨부한 뒤 기술검토(1차) 담당자를 지정해 검토를 요청합니다.', 'main form[method="POST"] button[type="submit"]'],
+    [tutorialRoleLabel('requester', '발의담당자'), 'STEP 1 · 변경요청 등록', '기본정보와 개선요청서를 작성하고 필요 시 파일을 첨부한 뒤 기술검토(1차) 담당자를 지정해 검토를 요청합니다.', 'main form[method="POST"] button[type="submit"]'],
     [tutorialRoleLabel('prod_leader', '생산 파트장'), '1단계 등급판정 기준 확인', '등급판정 기준 팝업에서 1~4등급의 영향 기준과 승인·전결 기준을 먼저 확인합니다.', '#criteria-popup .grade-criteria-table', 'grade-popup'],
     [tutorialRoleLabel('prod_leader', '생산 파트장'), '1단계 위험성평가 기준 확인', '1·2등급 선택 시 위험성평가 기준 팝업에서 발생빈도·위험강도와 8점 이상 기준을 확인합니다.', '#risk-criteria-popup .risk-criteria-grid', 'risk-r1'],
-    [tutorialRoleLabel('prod_leader', '생산 파트장'), '기술검토(1차) 완료', '세 가지 위험성평가 항목과 판정등급·검토의견·기술검토(2차) 담당자를 입력하고 완료합니다.', 'form:has(input[value="complete_review1"]) button[type="submit"]'],
+    [tutorialRoleLabel('prod_leader', '생산 파트장'), 'STEP 2 · 기술검토(1차)', '세 가지 위험성평가 항목과 판정등급·검토의견·기술검토(2차) 담당자를 입력하고 완료합니다.', 'form:has(input[value="complete_review1"]) button[type="submit"]'],
     [tutorialRoleLabel('elec_leader', '전기정비 파트장'), '2단계 등급판정 기준 확인', '최종 판정 전 등급판정 기준 팝업을 열어 1차 판정과 적용 기준을 다시 대조합니다.', '#criteria-popup .grade-criteria-table', 'grade-popup'],
     [tutorialRoleLabel('elec_leader', '전기정비 파트장'), '2단계 위험성평가 기준 확인', '1·2등급이면 위험성평가 기준 팝업의 점수표를 기준으로 세 항목을 재평가합니다.', '#risk-criteria-popup .risk-criteria-grid', 'risk-r2'],
-    [tutorialRoleLabel('elec_leader', '전기정비 파트장'), '기술검토(2차) 및 등급판정', '위험성평가 결과를 확인하고 판정등급·정비담당자를 지정한 뒤 검토를 완료합니다.', 'form:has(input[value="complete_review2"]) button[type="submit"]'],
-    [tutorialRoleLabel('maint_staff', '정비담당자'), '개선계획서 작성·첨부', '계획 작성 후 첨부 방식을 처음 한 번 설명합니다. 양식 다운로드는 관리자가 등록한 표준 서식을 받는 기능이고, URL은 외부 주소, ECM은 사내 문서 ID를 연결하는 기능입니다.', 'button[onclick*="modal-plan_form"]'],
+    [tutorialRoleLabel('elec_leader', '전기정비 파트장'), 'STEP 3 · 기술검토(2차)', '위험성평가 결과를 확인하고 판정등급·정비담당자를 지정한 뒤 검토를 완료합니다.', 'form:has(input[value="complete_review2"]) button[type="submit"]'],
+    [tutorialRoleLabel('maint_staff', '정비담당자'), 'STEP 4 · 개선계획', '화면 안의 개선계획서에 작업 상세계획·자재·작업시간·담당자·비상연락처·롤백계획을 입력하고 저장한 뒤 첨부자료를 등록합니다.', '#form-plan_form textarea[name="work_plan"]'],
     [tutorialRoleLabel('maint_staff', '정비담당자'), '개선계획서 제출', '계획서와 필수 첨부자료가 모두 준비된 것을 확인한 뒤 제출합니다.', 'form:has(input[value="plan_submit"]) button[type="submit"]'],
     [tutorialRoleLabel('requester', '발의담당자'), '상위 전결 경로 확인 및 이관', '최종등급과 승인경로를 확인합니다. 1등급은 생산부장, 2등급은 공장장 상위 전결 단계로 이관합니다.', 'form:has(input[value="go_committee"]) button[type="submit"]']
   ];
   const TUTORIAL_TAIL = {
     1: [
-      [tutorialRoleLabel('committee', '생산부장'), '1등급 상위 전결 승인', '생산부장이 계획서·첨부자료·전결 검토자료를 확인하고 승인합니다. 서면 승인 방식이면 발의담당자가 자료 첨부 후 승인 결과를 반영합니다.', 'form:has(input[value="committee_approve"]) button[type="submit"]']
+      [tutorialRoleLabel('committee', '생산부장'), 'STEP 5 · 변경관리위원회 승인', '위원회 일자·참석자·부서별 의견·위원장 의견을 저장하고 검토자료를 첨부한 뒤 생산부장이 승인합니다.', '#committee-date']
     ],
     2: [
-      [tutorialRoleLabel('committee_2', '공장장'), '2등급 상위 전결 승인', '공장장이 계획서·첨부자료·전결 검토자료를 확인하고 승인합니다. 서면 승인 방식이면 발의담당자가 자료 첨부 후 승인 결과를 반영합니다.', 'form:has(input[value="committee_approve"]) button[type="submit"]']
+      [tutorialRoleLabel('committee_2', '공장장'), 'STEP 5 · 변경관리위원회 승인', '위원회 일자·참석자·부서별 의견·위원장 의견을 저장하고 검토자료를 첨부한 뒤 공장장이 승인합니다.', '#committee-date']
     ],
     3: [
-      [tutorialRoleLabel('maint_section', '정비섹션 리더'), '3등급 내부 전결 승인', '정비섹션 리더가 개선계획서와 필수 첨부자료를 확인한 뒤 내부 전결 승인합니다.', 'form:has(input[value="plan_approve"]) button[type="submit"]']
+      [tutorialRoleLabel('maint_section', '정비섹션 리더'), 'STEP 6 · 개선계획 승인', '정비섹션 리더가 개선계획서와 필수 첨부자료를 확인하고 승인 코멘트를 작성한 뒤 내부 전결 승인합니다.', 'form:has(input[value="plan_approve"]) button[type="submit"]']
     ]
   };
   const FINAL_TUTORIAL = [
-    [tutorialRoleLabel('maint_staff', '정비담당자'), 'Simulation Test 요청', '전기정비 파트장을 승인자로 지정하고 테스트를 요청합니다.', 'form:has(input[value="sim_request"]) button[type="submit"]'],
-    [tutorialRoleLabel('elec_leader', '전기정비 파트장'), 'Simulation Test 승인', '테스트 결과를 확인하고 승인하여 시운전 단계로 이동합니다.', 'form:has(input[value="sim_approve"]) button[type="submit"]'],
-    [tutorialRoleLabel('requester', '발의담당자'), '개선내용 교육 완료', '작업자 교육을 마친 뒤 완료 체크를 누릅니다.', 'form:has(input[value="education_check"]) button[type="submit"]'],
-    [tutorialRoleLabel('requester', '발의담당자'), '시운전 완료', '교육, 시운전계획서, 계획 첨부, 시운전 결과서가 모두 준비된 것을 확인하고 완료 처리합니다.', 'form:has(input[value="commissioning_complete"]) button[type="submit"]'],
-    [tutorialRoleLabel('maint_staff', '정비담당자'), '프로그램 백업 완료', '최종 프로그램 백업자료를 첨부하고 백업 완료 처리합니다.', 'form:has(input[value="backup_complete"]) button[type="submit"]'],
-    [tutorialRoleLabel('maint_staff', '정비담당자'), '최종 완료 확인', '진행현황이 최종 완료인지, 문서와 첨부자료가 모두 남아 있는지 확인합니다.', '.completion-message.final']
+    [tutorialRoleLabel('maint_staff', '정비담당자'), 'STEP 7 · 개선진행', '개선작업 후 전기정비 파트장을 승인자로 지정하고 테스트 범위와 요청 코멘트를 작성해 Simulation Test를 요청합니다.', 'form:has(input[value="sim_request"]) button[type="submit"]'],
+    [tutorialRoleLabel('elec_leader', '전기정비 파트장'), 'STEP 8 · Simulation Test', '테스트 결과와 복구 가능 여부를 확인하고 승인 코멘트를 작성해 시운전 단계로 이동합니다.', 'form:has(input[value="sim_approve"]) button[type="submit"]'],
+    [tutorialRoleLabel('requester', '발의담당자'), 'STEP 9 · 시운전 — 개선내용 교육', '교육일자·담당자·대상·내용·특이사항을 기록하고 교육자료를 첨부한 뒤 완료 체크를 누릅니다.', 'form:has(input[value="education_check"]) button[type="submit"]'],
+    [tutorialRoleLabel('requester', '발의담당자'), 'STEP 9 · 시운전 — 완료', '교육, 시운전계획서, 계획 첨부, 시운전 결과서와 표준 제·개정 여부를 모두 확인하고 완료 처리합니다.', 'form:has(input[value="commissioning_complete"]) button[type="submit"]'],
+    [tutorialRoleLabel('maint_staff', '정비담당자'), 'STEP 10 · 완료', '최종 프로그램 백업자료를 첨부하고 백업 경로와 코멘트를 작성해 완료 처리합니다.', 'form:has(input[value="backup_complete"]) button[type="submit"]'],
+    [tutorialRoleLabel('maint_staff', '정비담당자'), 'STEP 10 · 완료 — 작성 내용 확인', '완료 후에도 각 단계의 작성 내용이 읽기 전용으로 유지됩니다. STEP 5~10을 선택해 당시 입력값·문서·첨부자료를 확인합니다.', '.completion-message.final']
   ];
   const BACKUP_TUTORIAL = [
     ['전체업무 권한자', '백업 대상 신규 등록', '지역·공장·공장상세·설비명과 관리정보를 입력하는 신규 등록창을 엽니다.', 'button[onclick="openPbRegister()"]'],
@@ -4650,7 +4708,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '043d9b6d2eaba8282259198dac12de293715bb4d35be436dd26525b4bbf96597' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'fc241a21dadbdb8a20732cdc934685f32279212c861c72eb09ea29f35fa01449' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

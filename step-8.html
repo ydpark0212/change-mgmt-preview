@@ -193,6 +193,9 @@
 
 
 
+
+
+
 <div class="page-header">
   <div>
     <div class="page-title">
@@ -201,7 +204,7 @@
       &nbsp;제어 프로그램 개선 및 안전성 검증
     </div>
     <div class="page-subtitle" style="margin-top:4px">
-      등록일 2026-09-17 04:42 · 신청자 미리보기 관리자
+      등록일 2026-09-17 12:46 · 신청자 미리보기 관리자
       ·  
       · 압연 제어설비
     </div>
@@ -813,7 +816,7 @@
   </div>
   
   <form method="POST" action="/cr/8/action">
-      <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
+      <input type="hidden" name="_csrf_token" value="f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079">
     <input type="hidden" name="action" value="sim_approve">
     <div class="form-group">
       <label class="form-label">승인 코멘트</label>
@@ -930,7 +933,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/8/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
+        <input type="hidden" name="_csrf_token" value="f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079">
         <input type="hidden" name="field" value="prod_reviewer_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">기술검토(1차) 담당자
@@ -947,7 +950,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/8/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
+        <input type="hidden" name="_csrf_token" value="f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079">
         <input type="hidden" name="field" value="maint_reviewer_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">기술검토(2차) 담당자
@@ -964,7 +967,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/8/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
+        <input type="hidden" name="_csrf_token" value="f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079">
         <input type="hidden" name="field" value="maint_staff_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">정비담당자
@@ -981,7 +984,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/8/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
+        <input type="hidden" name="_csrf_token" value="f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079">
         <input type="hidden" name="field" value="plan_approver_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">개선계획 승인자
@@ -998,7 +1001,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/8/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
+        <input type="hidden" name="_csrf_token" value="f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079">
         <input type="hidden" name="field" value="sim_approver_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">Simulation Test 승인자
@@ -1170,7 +1173,7 @@ async function saveCommitteeForm() {
   const opinions = Array.from(document.querySelectorAll('.committee-opinion-row')).map(row => ({department: row.querySelector('select').value, opinion: row.querySelector('textarea').value.trim()}));
   document.getElementById('committee-opinions').value = JSON.stringify(opinions);
   if (TUTORIAL_FRAME) {
-    showToast('✅ 튜토리얼 연습용으로 위원회 양식을 저장했습니다.');
+    showToast('✅ 튜토리얼 연습용으로 위원회 정보를 저장했습니다.');
     return;
   }
   const response = await fetch(`/cr/${CR_ID}/document/committee_form`, {method:'POST', body:new FormData(form)});
@@ -1569,7 +1572,7 @@ function attachFormTemplate(tplId, name) {
       <button type="button" class="modal-close" onclick="closeLinkAttach()" aria-label="닫기">×</button>
     </div>
     <form method="POST" id="link-attach-form" class="link-attach-form">
-      <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
+      <input type="hidden" name="_csrf_token" value="f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079">
       <input type="hidden" name="attach_type" value="committee_doc">
 
       <div class="link-kind-selector" aria-label="링크 유형 선택">
@@ -1723,7 +1726,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       for (const input of inputs) {
         const response = await fetch('/admin/ui-text', {
-          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09'},
+          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079'},
           body:JSON.stringify({key:input.dataset.uiTextKey,value:input.value.trim()})
         });
         const result = await response.json();
@@ -1829,7 +1832,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="adminCrDeleteModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="adminCrDeleteTitle">
   <div class="modal-box" style="max-width:520px;">
     <form id="adminCrDeleteForm" method="POST">
-      <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
+      <input type="hidden" name="_csrf_token" value="f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079">
       <div class="modal-header">
         <div>
           <h3 id="adminCrDeleteTitle" style="color:#B42318;">🗑 변경요청 삭제</h3>
@@ -1978,7 +1981,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = '10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09';
+  var token = 'f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -3957,7 +3960,7 @@ function showToast(msg, isErr) {
         ['참석자 선택 완료', '#modal-committee-attendees .modal-footer button', 'click'],
         ['부서 검토 의견 입력', '#committee-opinion-rows .committee-opinion-row:first-child textarea', 'type', '안전 검토 결과 이상 없습니다.'],
         ['위원장 의견 작성', '#committee-chair-opinion', 'type', '위원회 검토 결과 승인합니다.'],
-        ['위원회 양식 저장', 'button[onclick="saveCommitteeForm()"]', 'click-stay'],
+        ['위원회 정보 저장', 'button[onclick="saveCommitteeForm()"]', 'click-stay'],
         ['위원회 검토자료 첨부', '.upload-zone:has(#upload-committee)', 'file', '위원회_검토자료.pdf'],
         ['변경관리위원회 승인', 'form:has(input[value="committee_approve"]) button[type="submit"]', 'click']
       ],
@@ -4010,7 +4013,7 @@ function showToast(msg, isErr) {
     ];
     if (title === 'STEP 9 · 시운전 — 개선내용 교육') return [
       ['교육자료·대상자 확인', '[data-step-group="COMMISSIONING"]', 'inspect', '', 2000],
-      ['교육 완료 체크', 'form:has(input[value="education_check"]) button[type="submit"]', 'click']
+      ['교육 완료', 'form:has(input[value="education_check"]) button[type="submit"]', 'click']
     ];
     if (title === 'STEP 9 · 시운전 — 완료') return [
       ['교육·계획·확인서 점검', '[data-step-group="COMMISSIONING"]', 'inspect', '', 2400],
@@ -4056,7 +4059,7 @@ function showToast(msg, isErr) {
   const FINAL_TUTORIAL = [
     [tutorialRoleLabel('maint_staff', '정비담당자'), 'STEP 7 · 개선진행', '개선작업 후 전기정비 파트장을 승인자로 지정하고 테스트 범위와 요청 코멘트를 작성해 Simulation Test를 요청합니다.', 'form:has(input[value="sim_request"]) button[type="submit"]'],
     [tutorialRoleLabel('elec_leader', '전기정비 파트장'), 'STEP 8 · Simulation Test', '테스트 결과와 복구 가능 여부를 확인하고 승인 코멘트를 작성해 시운전 단계로 이동합니다.', 'form:has(input[value="sim_approve"]) button[type="submit"]'],
-    [tutorialRoleLabel('requester', '발의담당자'), 'STEP 9 · 시운전 — 개선내용 교육', '교육일자·담당자·대상·내용·특이사항을 기록하고 교육자료를 첨부한 뒤 완료 체크를 누릅니다.', 'form:has(input[value="education_check"]) button[type="submit"]'],
+    [tutorialRoleLabel('requester', '발의담당자'), 'STEP 9 · 시운전 — 개선내용 교육', '교육일자·담당자·대상·내용·특이사항을 기록하고 교육자료를 첨부한 뒤 완료를 누릅니다.', 'form:has(input[value="education_check"]) button[type="submit"]'],
     [tutorialRoleLabel('requester', '발의담당자'), 'STEP 9 · 시운전 — 완료', '교육, 시운전계획서, 계획 첨부, 시운전 결과서와 표준 제·개정 여부를 모두 확인하고 완료 처리합니다.', 'form:has(input[value="commissioning_complete"]) button[type="submit"]'],
     [tutorialRoleLabel('maint_staff', '정비담당자'), 'STEP 10 · 완료', '최종 프로그램 백업자료를 첨부하고 백업 경로와 코멘트를 작성해 완료 처리합니다.', 'form:has(input[value="backup_complete"]) button[type="submit"]'],
     [tutorialRoleLabel('maint_staff', '정비담당자'), 'STEP 10 · 완료 — 작성 내용 확인', '완료 후에도 각 단계의 작성 내용이 읽기 전용으로 유지됩니다. STEP 5~10을 선택해 당시 입력값·문서·첨부자료를 확인합니다.', '.completion-message.final']
@@ -4766,7 +4769,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

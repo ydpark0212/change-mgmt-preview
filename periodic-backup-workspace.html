@@ -482,7 +482,7 @@
   <section class="pbw-upload-panel" data-backup-upload-panel hidden aria-labelledby="pbw-upload-title">
     <div class="pbw-upload-head"><div><span class="pbw-step-number">3</span><h2 id="pbw-upload-title">백업 파일 적용</h2><p data-upload-mode>선택한 설비에 파일을 연결합니다.</p></div><button type="button" class="pbw-close" data-close-upload aria-label="닫기">×</button></div>
     <form method="POST" enctype="multipart/form-data" data-upload-form action="/periodic-backup/bulk-upload" data-bulk-action="/periodic-backup/bulk-upload">
-      <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
+      <input type="hidden" name="_csrf_token" value="f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079">
       <input type="hidden" name="year" value="2026">
       <input type="hidden" name="factory" value="" data-upload-factory>
       <input type="hidden" name="include_all_targets" value="1">
@@ -586,7 +586,7 @@
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = '10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09';
+  var token = 'f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -2565,7 +2565,7 @@ function showToast(msg, isErr) {
         ['참석자 선택 완료', '#modal-committee-attendees .modal-footer button', 'click'],
         ['부서 검토 의견 입력', '#committee-opinion-rows .committee-opinion-row:first-child textarea', 'type', '안전 검토 결과 이상 없습니다.'],
         ['위원장 의견 작성', '#committee-chair-opinion', 'type', '위원회 검토 결과 승인합니다.'],
-        ['위원회 양식 저장', 'button[onclick="saveCommitteeForm()"]', 'click-stay'],
+        ['위원회 정보 저장', 'button[onclick="saveCommitteeForm()"]', 'click-stay'],
         ['위원회 검토자료 첨부', '.upload-zone:has(#upload-committee)', 'file', '위원회_검토자료.pdf'],
         ['변경관리위원회 승인', 'form:has(input[value="committee_approve"]) button[type="submit"]', 'click']
       ],
@@ -2618,7 +2618,7 @@ function showToast(msg, isErr) {
     ];
     if (title === 'STEP 9 · 시운전 — 개선내용 교육') return [
       ['교육자료·대상자 확인', '[data-step-group="COMMISSIONING"]', 'inspect', '', 2000],
-      ['교육 완료 체크', 'form:has(input[value="education_check"]) button[type="submit"]', 'click']
+      ['교육 완료', 'form:has(input[value="education_check"]) button[type="submit"]', 'click']
     ];
     if (title === 'STEP 9 · 시운전 — 완료') return [
       ['교육·계획·확인서 점검', '[data-step-group="COMMISSIONING"]', 'inspect', '', 2400],
@@ -2664,7 +2664,7 @@ function showToast(msg, isErr) {
   const FINAL_TUTORIAL = [
     [tutorialRoleLabel('maint_staff', '정비담당자'), 'STEP 7 · 개선진행', '개선작업 후 전기정비 파트장을 승인자로 지정하고 테스트 범위와 요청 코멘트를 작성해 Simulation Test를 요청합니다.', 'form:has(input[value="sim_request"]) button[type="submit"]'],
     [tutorialRoleLabel('elec_leader', '전기정비 파트장'), 'STEP 8 · Simulation Test', '테스트 결과와 복구 가능 여부를 확인하고 승인 코멘트를 작성해 시운전 단계로 이동합니다.', 'form:has(input[value="sim_approve"]) button[type="submit"]'],
-    [tutorialRoleLabel('requester', '발의담당자'), 'STEP 9 · 시운전 — 개선내용 교육', '교육일자·담당자·대상·내용·특이사항을 기록하고 교육자료를 첨부한 뒤 완료 체크를 누릅니다.', 'form:has(input[value="education_check"]) button[type="submit"]'],
+    [tutorialRoleLabel('requester', '발의담당자'), 'STEP 9 · 시운전 — 개선내용 교육', '교육일자·담당자·대상·내용·특이사항을 기록하고 교육자료를 첨부한 뒤 완료를 누릅니다.', 'form:has(input[value="education_check"]) button[type="submit"]'],
     [tutorialRoleLabel('requester', '발의담당자'), 'STEP 9 · 시운전 — 완료', '교육, 시운전계획서, 계획 첨부, 시운전 결과서와 표준 제·개정 여부를 모두 확인하고 완료 처리합니다.', 'form:has(input[value="commissioning_complete"]) button[type="submit"]'],
     [tutorialRoleLabel('maint_staff', '정비담당자'), 'STEP 10 · 완료', '최종 프로그램 백업자료를 첨부하고 백업 경로와 코멘트를 작성해 완료 처리합니다.', 'form:has(input[value="backup_complete"]) button[type="submit"]'],
     [tutorialRoleLabel('maint_staff', '정비담당자'), 'STEP 10 · 완료 — 작성 내용 확인', '완료 후에도 각 단계의 작성 내용이 읽기 전용으로 유지됩니다. STEP 5~10을 선택해 당시 입력값·문서·첨부자료를 확인합니다.', '.completion-message.final']
@@ -3374,7 +3374,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'f335125e9f8ed6fcedf536d6d4c2a971d2ec711bb8723229dac65e7475385079' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

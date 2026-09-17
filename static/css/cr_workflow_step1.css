@@ -246,6 +246,11 @@
 .cr-step-content .cr-step5-grade span { font-size: 10.5px; }
 .cr-step-content .cr-completion-meta { flex-wrap: wrap; white-space: normal; }
 .cr-step-content .attach-item a { overflow-wrap: anywhere; min-width: 0; }
+.cr-step-content .committee-opinion-row textarea.form-control {
+  height: 35px !important;
+  min-height: 35px !important;
+  max-height: 35px !important;
+}
 
 @media (max-width: 700px) {
   .cr-step-content .btn { white-space: normal; line-height: 1.45; max-width: 100%; }

@@ -201,7 +201,7 @@
       &nbsp;제어 프로그램 개선 및 안전성 검증
     </div>
     <div class="page-subtitle" style="margin-top:4px">
-      등록일 2026-09-17 02:13 · 신청자 미리보기 관리자
+      등록일 2026-09-17 02:42 · 신청자 미리보기 관리자
       ·  
       · 압연 제어설비
     </div>
@@ -818,7 +818,7 @@
 
     
     <form method="POST" action="/cr/4/action">
-      <input type="hidden" name="_csrf_token" value="fa6b46a6b7d34d67f49913a0ec464c11ccea8244732098e47888a942e6282ae3">
+      <input type="hidden" name="_csrf_token" value="f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6">
       <input type="hidden" name="action" value="plan_submit">
       
       <div class="form-group">
@@ -971,7 +971,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/4/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="fa6b46a6b7d34d67f49913a0ec464c11ccea8244732098e47888a942e6282ae3">
+        <input type="hidden" name="_csrf_token" value="f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6">
         <input type="hidden" name="field" value="prod_reviewer_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">기술검토(1차) 담당자
@@ -988,7 +988,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/4/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="fa6b46a6b7d34d67f49913a0ec464c11ccea8244732098e47888a942e6282ae3">
+        <input type="hidden" name="_csrf_token" value="f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6">
         <input type="hidden" name="field" value="maint_reviewer_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">기술검토(2차) 담당자
@@ -1005,7 +1005,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/4/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="fa6b46a6b7d34d67f49913a0ec464c11ccea8244732098e47888a942e6282ae3">
+        <input type="hidden" name="_csrf_token" value="f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6">
         <input type="hidden" name="field" value="maint_staff_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">정비담당자
@@ -1022,7 +1022,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/4/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="fa6b46a6b7d34d67f49913a0ec464c11ccea8244732098e47888a942e6282ae3">
+        <input type="hidden" name="_csrf_token" value="f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6">
         <input type="hidden" name="field" value="plan_approver_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">개선계획 승인자
@@ -1039,7 +1039,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/4/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="fa6b46a6b7d34d67f49913a0ec464c11ccea8244732098e47888a942e6282ae3">
+        <input type="hidden" name="_csrf_token" value="f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6">
         <input type="hidden" name="field" value="sim_approver_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">Simulation Test 승인자
@@ -1605,7 +1605,7 @@ function attachFormTemplate(tplId, name) {
       <button type="button" class="modal-close" onclick="closeLinkAttach()" aria-label="닫기">×</button>
     </div>
     <form method="POST" id="link-attach-form" class="link-attach-form">
-      <input type="hidden" name="_csrf_token" value="fa6b46a6b7d34d67f49913a0ec464c11ccea8244732098e47888a942e6282ae3">
+      <input type="hidden" name="_csrf_token" value="f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6">
       <input type="hidden" name="attach_type" value="committee_doc">
 
       <div class="link-kind-selector" aria-label="링크 유형 선택">
@@ -1759,7 +1759,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       for (const input of inputs) {
         const response = await fetch('/admin/ui-text', {
-          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'fa6b46a6b7d34d67f49913a0ec464c11ccea8244732098e47888a942e6282ae3'},
+          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6'},
           body:JSON.stringify({key:input.dataset.uiTextKey,value:input.value.trim()})
         });
         const result = await response.json();
@@ -1865,7 +1865,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="adminCrDeleteModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="adminCrDeleteTitle">
   <div class="modal-box" style="max-width:520px;">
     <form id="adminCrDeleteForm" method="POST">
-      <input type="hidden" name="_csrf_token" value="fa6b46a6b7d34d67f49913a0ec464c11ccea8244732098e47888a942e6282ae3">
+      <input type="hidden" name="_csrf_token" value="f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6">
       <div class="modal-header">
         <div>
           <h3 id="adminCrDeleteTitle" style="color:#B42318;">🗑 변경요청 삭제</h3>
@@ -2014,7 +2014,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = 'fa6b46a6b7d34d67f49913a0ec464c11ccea8244732098e47888a942e6282ae3';
+  var token = 'f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -4270,11 +4270,59 @@ function showToast(msg, isErr) {
   function tutorialTargetPoint(target) {
     const browserRect = tutorialFrame.parentElement.getBoundingClientRect();
     const frameRect = tutorialFrame.getBoundingClientRect();
+    const browserWidth = browserRect.width || tutorialFrame.parentElement.clientWidth || 1;
+    const browserHeight = browserRect.height || tutorialFrame.parentElement.clientHeight || 1;
+    const frameLeft = frameRect.left - browserRect.left;
+    const frameTop = frameRect.top - browserRect.top;
+    const safeMinX = 18;
+    const safeMaxX = Math.max(safeMinX, browserWidth - 30);
+    const safeMinY = Math.min(browserHeight / 2, Math.max(60, frameTop + 18));
+    const safeMaxY = Math.max(safeMinY, browserHeight - 30);
+    if (!target || target.isConnected === false) {
+      return {
+        x: Math.min(safeMaxX, Math.max(safeMinX, frameLeft + frameRect.width / 2)),
+        y: Math.min(safeMaxY, Math.max(safeMinY, frameTop + frameRect.height / 2))
+      };
+    }
     const targetRect = target.getBoundingClientRect();
+    if (!targetRect || targetRect.width <= 0 || targetRect.height <= 0) {
+      return {
+        x: Math.min(safeMaxX, Math.max(safeMinX, frameLeft + frameRect.width / 2)),
+        y: Math.min(safeMaxY, Math.max(safeMinY, frameTop + frameRect.height / 2))
+      };
+    }
+    const offsetX = targetRect.width <= 8 ? targetRect.width / 2
+      : Math.min(Math.max(targetRect.width * .55, 10), targetRect.width - 4);
+    const offsetY = targetRect.height <= 8 ? targetRect.height / 2
+      : Math.min(Math.max(targetRect.height * .55, 10), targetRect.height - 4);
     return {
-      x: frameRect.left - browserRect.left + targetRect.left + Math.min(Math.max(targetRect.width * .55, 10), targetRect.width - 4),
-      y: frameRect.top - browserRect.top + targetRect.top + Math.min(Math.max(targetRect.height * .55, 10), targetRect.height - 4)
+      x: Math.min(safeMaxX, Math.max(safeMinX, frameLeft + targetRect.left + offsetX)),
+      y: Math.min(safeMaxY, Math.max(safeMinY, frameTop + targetRect.top + offsetY))
     };
+  }
+  function waitForTutorialTarget(target, runId, done) {
+    let previous = null;
+    let stableFrames = 0;
+    let attempts = 0;
+    function sample() {
+      if (runId !== tutorialRunId) return;
+      if (!target || target.isConnected === false) {
+        done(false);
+        return;
+      }
+      const rect = target.getBoundingClientRect();
+      attempts += 1;
+      if (previous && Math.abs(rect.left - previous.left) < .75 && Math.abs(rect.top - previous.top) < .75
+          && Math.abs(rect.width - previous.width) < .75 && Math.abs(rect.height - previous.height) < .75) {
+        stableFrames += 1;
+      } else {
+        stableFrames = 0;
+      }
+      previous = {left:rect.left, top:rect.top, width:rect.width, height:rect.height};
+      if (stableFrames >= 2 || attempts >= 30) done(true);
+      else requestAnimationFrame(sample);
+    }
+    requestAnimationFrame(sample);
   }
   function placeTutorialCursor(x, y, moving) {
     tutorialCursor.hidden = false;
@@ -4449,11 +4497,16 @@ function showToast(msg, isErr) {
       target.scrollIntoView({behavior:'smooth', block:'center', inline:'center'});
       const browser = tutorialFrame.parentElement;
       placeTutorialCursor(Math.max(24, browser.clientWidth - 54), Math.max(62, browser.clientHeight - 56), false);
-      queueTutorialAction(function() {
+      waitForTutorialTarget(target, runId, function(valid) {
+        if (runId !== tutorialRunId) return;
         const point = tutorialTargetPoint(target);
         placeTutorialCursor(point.x, point.y, true);
+        if (!valid) {
+          queueTutorialAction(renderTutorialAction, 180, runId);
+          return;
+        }
         queueTutorialAction(function() { activateTutorialTarget(target, action, runId); }, 1150, runId);
-      }, 180, runId);
+      });
     }, 520, runId);
   }
 
@@ -4511,9 +4564,6 @@ function showToast(msg, isErr) {
     tutorialActiveTarget = target;
     tutorialActivePrepare = action;
     target.classList.add('tutorial-live-target');
-    setTimeout(function() {
-      if (target === tutorialActiveTarget) target.scrollIntoView({behavior:'smooth', block:'center'});
-    }, 80);
     startTutorialAutoDemo(target, action);
   }
   function highlightTutorialTarget() {
@@ -4749,7 +4799,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'fa6b46a6b7d34d67f49913a0ec464c11ccea8244732098e47888a942e6282ae3' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

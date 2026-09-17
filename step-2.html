@@ -201,7 +201,7 @@
       &nbsp;제어 프로그램 개선 및 안전성 검증
     </div>
     <div class="page-subtitle" style="margin-top:4px">
-      등록일 2026-09-17 03:21 · 신청자 미리보기 관리자
+      등록일 2026-09-17 04:42 · 신청자 미리보기 관리자
       ·  
       · 압연 제어설비
     </div>
@@ -445,7 +445,7 @@
 
 
 
-<div class="cr-request-stage" data-step-group="DRAFT">
+<div class="cr-request-stage" data-step-group="DRAFT" data-layout-step="1">
 <section class="card mb-16 cr-request-history-card" style="margin-bottom:16px">
   <div class="cr-request-history-head">
     <div>
@@ -567,31 +567,31 @@
 <div class="cr-step-content">
 
 
-<header class="cr-stage-heading" data-step-group="REVIEW1">
+<header class="cr-stage-heading" data-step-group="REVIEW1" data-layout-step="2">
   <span class="cr-stage-kicker">STEP 2</span><h2>검토 및 등급판정(1차)</h2><p>생산 검토자가 기술 의견과 위험 등급을 검토합니다.</p>
 </header>
-<header class="cr-stage-heading" data-step-group="REVIEW2">
+<header class="cr-stage-heading" data-step-group="REVIEW2" data-layout-step="3">
   <span class="cr-stage-kicker">STEP 3</span><h2>검토 및 등급판정(2차)</h2><p>정비 검토자가 기술 의견을 보완하고 최종 등급을 판정합니다.</p>
 </header>
-<header class="cr-stage-heading" data-step-group="GRADED">
+<header class="cr-stage-heading" data-step-group="GRADED" data-layout-step="4">
   <span class="cr-stage-kicker">STEP 4</span><h2>개선계획</h2><p>개선 작업의 상세 계획을 작성하고 승인 경로로 제출합니다.</p>
 </header>
-<header class="cr-stage-heading" data-step-group="COMMITTEE">
+<header class="cr-stage-heading" data-step-group="COMMITTEE" data-layout-step="5">
   <span class="cr-stage-kicker">STEP 5</span><h2>변경관리위원회 승인</h2><p>개선계획과 검토자료를 확인하고 승인 여부를 결정합니다.</p>
 </header>
-<header class="cr-stage-heading" data-step-group="PLAN_APPROVE">
+<header class="cr-stage-heading" data-step-group="PLAN_APPROVE" data-layout-step="6">
   <span class="cr-stage-kicker">STEP 6</span><h2>개선계획 승인</h2><p>제출된 개선계획과 첨부자료를 확인하고 승인합니다.</p>
 </header>
-<header class="cr-stage-heading" data-step-group="SIM_PROGRESS">
+<header class="cr-stage-heading" data-step-group="SIM_PROGRESS" data-layout-step="7">
   <span class="cr-stage-kicker">STEP 7</span><h2>개선진행</h2><p>개선작업을 수행하고 Simulation Test를 요청합니다.</p>
 </header>
-<header class="cr-stage-heading" data-step-group="SIM_TEST">
+<header class="cr-stage-heading" data-step-group="SIM_TEST" data-layout-step="8">
   <span class="cr-stage-kicker">STEP 8</span><h2>Simulation Test</h2><p>시험 결과를 검토하고 시운전 진행 여부를 승인합니다.</p>
 </header>
-<header class="cr-stage-heading" data-step-group="COMMISSIONING">
+<header class="cr-stage-heading" data-step-group="COMMISSIONING" data-layout-step="9">
   <span class="cr-stage-kicker">STEP 9</span><h2>시운전</h2><p>교육과 시운전 계획을 기록하고 결과를 확인합니다.</p>
 </header>
-<header class="cr-stage-heading" data-step-group="COMPLETED">
+<header class="cr-stage-heading" data-step-group="COMPLETED" data-layout-step="10">
   <span class="cr-stage-kicker">STEP 10</span><h2>완료</h2><p>프로그램 백업과 관련 산출물을 확인하고 변경관리를 완료합니다.</p>
 </header>
 
@@ -697,7 +697,7 @@
   </div>
   
   <form method="POST" action="/cr/2/action" data-review-draft="review1">
-      <input type="hidden" name="_csrf_token" value="f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6">
+      <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
     <input type="hidden" name="action" value="complete_review1">
 
     <div class="review-workspace">
@@ -873,7 +873,7 @@
         
       </div>
     </div>
-    <div class="action-buttons cr-unified-actions">
+    <div class="action-buttons cr-unified-actions cr-action-footer">
       <button type="button" class="btn cr-action-secondary" onclick="saveReviewDraft(this.form,'review1')">💾 임시저장</button>
       <button type="button" class="btn cr-action-danger" onclick="showRejectPanel('r1')">❌ 반려 (개선 취소)</button>
       <button type="submit" class="btn cr-action-primary">✅ 기술검토(1차) 완료</button>
@@ -884,7 +884,7 @@
   <div id="reject-panel-r1" style="display:none;margin-top:16px;padding:14px;background:#FFF5F5;border-radius:8px;border:1px solid #F5C6CB;">
     <div style="font-size:13px;font-weight:700;color:var(--red-bright);margin-bottom:8px;">⚠ 반려 처리 — 이 개선 건이 취소됩니다</div>
     <form method="POST" action="/cr/2/action">
-      <input type="hidden" name="_csrf_token" value="f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6">
+      <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
       <input type="hidden" name="action" value="reject">
       <div class="form-group">
         <label class="form-label" style="color:var(--red-bright)">반려 사유 <span class="req">*</span></label>
@@ -1024,7 +1024,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/2/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6">
+        <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
         <input type="hidden" name="field" value="prod_reviewer_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">기술검토(1차) 담당자
@@ -1041,7 +1041,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/2/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6">
+        <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
         <input type="hidden" name="field" value="maint_reviewer_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">기술검토(2차) 담당자
@@ -1058,7 +1058,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/2/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6">
+        <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
         <input type="hidden" name="field" value="maint_staff_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">정비담당자
@@ -1075,7 +1075,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/2/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6">
+        <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
         <input type="hidden" name="field" value="plan_approver_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">개선계획 승인자
@@ -1092,7 +1092,7 @@ function handleStandardsRevisionChoice(value) {
       
       <form method="POST" action="/cr/2/admin_reassign"
             style="display:flex;gap:8px;align-items:flex-end;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-color, #eee);">
-        <input type="hidden" name="_csrf_token" value="f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6">
+        <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
         <input type="hidden" name="field" value="sim_approver_id">
         <div class="form-group" style="flex:1;margin-bottom:0;">
           <label class="form-label">Simulation Test 승인자
@@ -1663,7 +1663,7 @@ function attachFormTemplate(tplId, name) {
       <button type="button" class="modal-close" onclick="closeLinkAttach()" aria-label="닫기">×</button>
     </div>
     <form method="POST" id="link-attach-form" class="link-attach-form">
-      <input type="hidden" name="_csrf_token" value="f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6">
+      <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
       <input type="hidden" name="attach_type" value="committee_doc">
 
       <div class="link-kind-selector" aria-label="링크 유형 선택">
@@ -1817,7 +1817,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       for (const input of inputs) {
         const response = await fetch('/admin/ui-text', {
-          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6'},
+          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09'},
           body:JSON.stringify({key:input.dataset.uiTextKey,value:input.value.trim()})
         });
         const result = await response.json();
@@ -1923,7 +1923,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="adminCrDeleteModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="adminCrDeleteTitle">
   <div class="modal-box" style="max-width:520px;">
     <form id="adminCrDeleteForm" method="POST">
-      <input type="hidden" name="_csrf_token" value="f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6">
+      <input type="hidden" name="_csrf_token" value="10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09">
       <div class="modal-header">
         <div>
           <h3 id="adminCrDeleteTitle" style="color:#B42318;">🗑 변경요청 삭제</h3>
@@ -2072,7 +2072,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = 'f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6';
+  var token = '10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -4860,7 +4860,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '10f293a77a36fb2c0fa721b1bba0b1eac4875187223a92e2f2ceb74c56f6eb09' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

@@ -206,3 +206,50 @@
   .cr-completion-fields { grid-template-columns: 1fr; }
   .cr-completion-fields-wide > div:first-child, .cr-completion-fields-wide > div:nth-child(2), .cr-completion-fields .is-wide { grid-column: auto; }
 }
+
+/* STEP 1~10 공통 작업·첨부 배치 */
+.cr-action-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  width: 100%;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.cr-attachment-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.cr-attachment-head-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+.committee-section-head>.cr-attachment-head-actions {
+  flex: 0 1 auto;
+  flex-direction: row;
+}
+.cr-step5-route-row>.cr-action-footer { grid-column: 1 / -1; }
+.cr-attachment-list-bottom {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.cr-attachment-list-bottom:empty { display: none; }
+@media (max-width: 700px) {
+  .cr-action-footer { align-items: stretch; flex-direction: column; }
+  .cr-action-footer .btn { width: 100%; justify-content: center; }
+  .cr-attachment-head { align-items: stretch; flex-direction: column; }
+  .cr-attachment-head-actions { width: 100%; margin-left: 0; }
+}

@@ -482,7 +482,7 @@
   <section class="pbw-upload-panel" data-backup-upload-panel hidden aria-labelledby="pbw-upload-title">
     <div class="pbw-upload-head"><div><span class="pbw-step-number">3</span><h2 id="pbw-upload-title">백업 파일 적용</h2><p data-upload-mode>선택한 설비에 파일을 연결합니다.</p></div><button type="button" class="pbw-close" data-close-upload aria-label="닫기">×</button></div>
     <form method="POST" enctype="multipart/form-data" data-upload-form action="/periodic-backup/bulk-upload" data-bulk-action="/periodic-backup/bulk-upload">
-      <input type="hidden" name="_csrf_token" value="f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6">
+      <input type="hidden" name="_csrf_token" value="f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6">
       <input type="hidden" name="year" value="2026">
       <input type="hidden" name="factory" value="" data-upload-factory>
       <input type="hidden" name="include_all_targets" value="1">
@@ -586,7 +586,7 @@
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = 'f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6';
+  var token = 'f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -2559,10 +2559,13 @@ function showToast(msg, isErr) {
       ],
       'STEP 5 · 변경관리위원회 승인': [
         ['위원회 일자 입력', '#committee-date', 'type', '2026-09-17'],
-        ['참석자 인사정보 검색 확인', '.committee-attendee-field', 'inspect', '', 1800],
-        ['부서별 검토 의견 확인', '#committee-opinion-rows', 'inspect', '', 1800],
+        ['참석자 검색 열기', '.committee-attendee-search-button', 'click-stay'],
+        ['참석자 검색', '#committee-attendee-search', 'type', '박발의'],
+        ['참석자 선택', '#committee-attendee-results input[type="checkbox"]', 'click-stay'],
+        ['참석자 선택 완료', '#modal-committee-attendees .modal-footer button', 'click'],
+        ['부서 검토 의견 입력', '#committee-opinion-rows .committee-opinion-row:first-child textarea', 'type', '안전 검토 결과 이상 없습니다.'],
         ['위원장 의견 작성', '#committee-chair-opinion', 'type', '위원회 검토 결과 승인합니다.'],
-        ['위원회 양식 저장', 'button[onclick="saveCommitteeForm()"]', 'inspect', '', 1800],
+        ['위원회 양식 저장', 'button[onclick="saveCommitteeForm()"]', 'click-stay'],
         ['위원회 검토자료 첨부', '.upload-zone:has(#upload-committee)', 'file', '위원회_검토자료.pdf'],
         ['변경관리위원회 승인', 'form:has(input[value="committee_approve"]) button[type="submit"]', 'click']
       ],
@@ -3371,7 +3374,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'f706390929e2f59fe5c2a6b47cc1afe0a39c956f690bc4586eefd1f27f8c18c6' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'f25b5d745444941b1a7f97679e4d4fab2e0033d93d4c085b25b745b1a6559ed6' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

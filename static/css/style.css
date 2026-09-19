@@ -1231,8 +1231,17 @@ select.form-control { cursor: pointer; }
 
 /* 정기백업 엑셀 일괄등록 — 템플릿 받기와 파일 고르기를 한 줄에 둔다 */
 .pb-excel-actions { display: flex; align-items: stretch; gap: 8px; flex-wrap: wrap; }
-.pb-excel-actions > .btn { flex: 1 1 0; justify-content: center; min-width: 0; padding-left: 9px; padding-right: 9px; }
-.pb-excel-actions > .btn > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* 배율(확대/축소)에 따라 글자 폭이 미세하게 달라진다. .btn 기본값인 nowrap을
+   그대로 두면 폭이 한 글자만 모자라도 잘리므로, 이 줄에서는 줄바꿈을 허용해
+   모자라면 두 줄로 흘려보낸다. 어떤 배율에서도 글자가 잘리지 않는다. */
+.pb-excel-actions > .btn {
+  flex: 1 1 92px; min-width: 0; justify-content: center; text-align: center;
+  gap: 5px; padding: 7px 10px; font-size: 12px; line-height: 1.35;
+  white-space: normal;
+}
+/* 한글은 기본값이 글자 단위 줄바꿈이라 '다운로/드'처럼 낱말이 쪼개진다.
+   keep-all로 띄어쓰기에서만 끊고, 띄어쓰기 없는 긴 파일명만 강제로 끊는다. */
+.pb-excel-actions > .btn > span { min-width: 0; word-break: keep-all; overflow-wrap: break-word; }
 .pb-excel-file { position: relative; overflow: hidden; cursor: pointer; }
 .pb-excel-file input[type=file] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
 .pb-excel-file.has-file { border-color: var(--posco-500); color: var(--posco-600); background: var(--posco-50); }

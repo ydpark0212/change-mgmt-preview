@@ -344,7 +344,7 @@
             <div><dt>담당자</dt><dd>이제어</dd></div>
           </dl>
         </div>
-        <div class="pbw-card-footer"><span>DCS</span><span>최근 2026-09-18</span></div>
+        <div class="pbw-card-footer"><span>DCS</span><span>최근 2026-09-19</span></div>
       </article>
       
       <article class="pbw-equipment-card is-pending" tabindex="0" data-backup-card data-backup-id="5" data-factory="도금공장" data-region="광양" data-line="CGL 1라인" data-status="pending" data-search="도금 scada scada-cgl1 10.42.5.30 최자동 홍책임 통합 운전실" data-upload-url="/periodic-backup/5/upload">
@@ -382,7 +382,7 @@
             <div><dt>담당자</dt><dd>최자동</dd></div>
           </dl>
         </div>
-        <div class="pbw-card-footer"><span>PLC</span><span>최근 2026-09-18</span></div>
+        <div class="pbw-card-footer"><span>PLC</span><span>최근 2026-09-19</span></div>
       </article>
       
       <article class="pbw-equipment-card is-na" tabindex="0" data-backup-card data-backup-id="8" data-factory="후판공장" data-region="광양" data-line="가열로 라인" data-status="na" data-search="구형 데이터로거 log-rhf-01 윤시스템 홍책임 현장 판넬" data-upload-url="/periodic-backup/8/upload">
@@ -482,7 +482,7 @@
   <section class="pbw-upload-panel" data-backup-upload-panel hidden aria-labelledby="pbw-upload-title">
     <div class="pbw-upload-head"><div><span class="pbw-step-number">3</span><h2 id="pbw-upload-title">백업 파일 적용</h2><p data-upload-mode>선택한 설비에 파일을 연결합니다.</p></div><button type="button" class="pbw-close" data-close-upload aria-label="닫기">×</button></div>
     <form method="POST" enctype="multipart/form-data" data-upload-form action="/periodic-backup/bulk-upload" data-bulk-action="/periodic-backup/bulk-upload">
-      <input type="hidden" name="_csrf_token" value="1562c45583ada2ede9f406e808355ea022bd750fac642723dc758fa6f59085c8">
+      <input type="hidden" name="_csrf_token" value="cf2add4177148028e147b4757eea0843364675870f842627d09b99a59b2d7a2a">
       <input type="hidden" name="year" value="2026">
       <input type="hidden" name="factory" value="" data-upload-factory>
       <input type="hidden" name="include_all_targets" value="1">
@@ -586,7 +586,7 @@
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = '1562c45583ada2ede9f406e808355ea022bd750fac642723dc758fa6f59085c8';
+  var token = 'cf2add4177148028e147b4757eea0843364675870f842627d09b99a59b2d7a2a';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -2453,7 +2453,7 @@ function showToast(msg, isErr) {
           ['엑셀 일괄등록 탭 선택', '.settings-tabs .s-tab:nth-child(2)', 'click-stay', '', 900, '여러 설비를 한 번에 등록할 때 엑셀 일괄등록 탭을 선택합니다.'],
           ['등록 절차와 필수 열 확인', '#tab-reg-excel .info-box', 'inspect', '', 3400, '먼저 템플릿을 내려받습니다. 지역, 공장, 공장상세는 필수 열이며 나머지 자산정보를 필요한 만큼 작성합니다.'],
           ['템플릿 다운로드 확인', '#tab-reg-excel a[download], #tab-reg-excel a.btn', 'inspect', '', 2300, '템플릿 다운로드 버튼을 눌러 현재 시스템 형식의 엑셀 파일을 받을 수 있습니다.'],
-          ['작성한 엑셀 업로드 위치', '#tab-reg-excel .upload-zone', 'file', '정기백업_대상설비.xlsx', 1700, '작성한 엑셀 파일을 이 영역에 선택합니다. 컬럼이 다르면 다음 화면에서 열을 직접 매핑할 수 있습니다.'],
+          ['작성한 엑셀 파일 선택', '#tab-reg-excel .pb-excel-actions', 'file', '정기백업_대상설비.xlsx', 1700, '템플릿 다운로드 옆의 엑셀 파일 선택을 눌러 작성한 파일을 고릅니다. 컬럼이 다르면 다음 화면에서 열을 직접 매핑할 수 있습니다.'],
           ['일괄등록 실행 전 확인', '#tab-reg-excel button[type="submit"]', 'inspect', '', 2200, '일괄 등록을 누르면 기존 목록은 유지한 채로, 아이피 주소가 중복된 건의 유지 또는 교체 정책을 확인한 뒤 대상 목록에 반영됩니다.']
         ]
       };
@@ -2573,6 +2573,7 @@ function showToast(msg, isErr) {
       ],
       '상위 전결 경로 확인 및 이관': [
         ['최종등급·승인경로 확인', '[data-step-group="GRADED"]', 'inspect', '', 2200],
+        ['변경관리위원회 위원장 지정', '.user-search-select:has(input[name="committee_approver_id"]) .uss-input', 'user', '', 2600, '공장마다 전결권자가 여러 명이므로, 이 건을 전결할 위원장 한 분을 지정합니다. 지정된 분만 승인할 수 있습니다.'],
         ['상위 전결 단계로 이관', 'form:has(input[value="go_committee"]) button[type="submit"]', 'click']
       ],
       '내부 전결 자동 이관 확인': [
@@ -3370,7 +3371,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '1562c45583ada2ede9f406e808355ea022bd750fac642723dc758fa6f59085c8' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'cf2add4177148028e147b4757eea0843364675870f842627d09b99a59b2d7a2a' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

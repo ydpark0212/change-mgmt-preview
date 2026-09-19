@@ -264,3 +264,27 @@
   .cr-attachment-head { align-items: stretch; flex-direction: column; }
   .cr-attachment-head-actions { width: 100%; margin-left: 0; }
 }
+
+/* ── 담당자 변경 팝업 — 항목/현재/변경할 담당자 칸 크기를 맞춘다 ── */
+.reassign-guide { margin: 0 0 14px; color: var(--text-muted); font-size: 12px; line-height: 1.6; }
+.reassign-table { display: grid; gap: 8px; }
+.reassign-row { display: grid; grid-template-columns: minmax(120px, 1.05fr) minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center; gap: 8px; }
+.reassign-head { padding: 0 2px; color: var(--text-muted); font-size: 11px; font-weight: 700; }
+.reassign-label { min-width: 0; font-size: 12px; font-weight: 700; color: var(--text-primary);
+  word-break: keep-all; }
+/* 현재 담당자 표시와 선택 상자를 같은 높이·폭으로 맞춰 한눈에 대응되게 한다 */
+.reassign-box { display: flex; align-items: center; box-sizing: border-box;
+  width: 100%; min-width: 0; height: 36px; padding: 0 10px;
+  border: 1px solid var(--border); border-radius: 7px; font-size: 12px; }
+.reassign-current { background: var(--bg-base); color: var(--text-primary);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.reassign-current.is-empty { color: var(--text-muted); }
+select.reassign-box { height: 36px; background-color: #fff; }
+.reassign-none { background: var(--bg-base); color: var(--text-muted); font-size: 11px;
+  word-break: keep-all; line-height: 1.35; }
+@media (max-width: 640px) {
+  .reassign-row { grid-template-columns: 1fr; gap: 5px; }
+  .reassign-head { display: none; }
+  .reassign-label { margin-top: 6px; }
+}

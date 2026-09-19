@@ -204,7 +204,7 @@
       &nbsp;제어 프로그램 개선 및 안전성 검증
     </div>
     <div class="page-subtitle" style="margin-top:4px">
-      등록일 2026-09-19 13:07 · 신청자 미리보기 관리자
+      등록일 2026-09-19 13:28 · 신청자 미리보기 관리자
       ·  
       · 압연 제어설비
     </div>
@@ -215,7 +215,7 @@
     
     <span class="grade-3">3등급 (중위험)</span>
     
-    <a href="/cr/3/report/pptx" class="btn btn-ghost btn-sm">📊 리포트 생성</a>
+    
     
     <button type="button" class="btn btn-ghost btn-sm" onclick="openModal('modal-admin_reassign')" title="담당자 부재 시 다른 사용자로 변경">🛠 담당자 변경</button>
     
@@ -756,7 +756,7 @@
   
   
   <form method="POST" action="/cr/3/action" data-review-draft="review2">
-      <input type="hidden" name="_csrf_token" value="f2cecda23c7468d9913b8f1bdda238addd513d86f86a4769ae0a5ac0932e3d2f">
+      <input type="hidden" name="_csrf_token" value="dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f">
     <input type="hidden" name="action" value="complete_review2">
 
     <div class="review-workspace">
@@ -940,7 +940,7 @@
   <div id="reject-panel-r2" style="display:none;margin-top:16px;padding:14px;background:#FFF5F5;border-radius:8px;border:1px solid #F5C6CB;">
     <div style="font-size:13px;font-weight:700;color:var(--red-bright);margin-bottom:8px;">⚠ 반려 처리 — 이 개선 건이 취소됩니다</div>
     <form method="POST" action="/cr/3/action">
-      <input type="hidden" name="_csrf_token" value="f2cecda23c7468d9913b8f1bdda238addd513d86f86a4769ae0a5ac0932e3d2f">
+      <input type="hidden" name="_csrf_token" value="dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f">
       <input type="hidden" name="action" value="reject">
       <div class="form-group">
         <label class="form-label" style="color:var(--red-bright)">반려 사유 <span class="req">*</span></label>
@@ -1068,7 +1068,7 @@ function handleStandardsRevisionChoice(value) {
     </div>
     
     <form method="POST" action="/cr/3/admin_reassign" id="admin-reassign-form">
-      <input type="hidden" name="_csrf_token" value="f2cecda23c7468d9913b8f1bdda238addd513d86f86a4769ae0a5ac0932e3d2f">
+      <input type="hidden" name="_csrf_token" value="dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f">
       <div class="modal-body modal-body-compact">
         <p class="reassign-guide">
           담당자가 휴직·퇴사 등으로 부재중이어서 워크플로우가 멈췄을 때만 사용하세요.
@@ -1223,12 +1223,12 @@ document.addEventListener('submit', (e) => {
 const CR_ID = 3;
 const TUTORIAL_FRAME = false;
 const CR_STATUS = "REVIEW2";
-const COMMITTEE_USERS = [1].map((id) => {
-  const rows = ["\ubbf8\ub9ac\ubcf4\uae30 \uad00\ub9ac\uc790"];
-  const departments = [null];
-  const hrDepartments = [null];
-  const jobTitles = [null];
-  const index = [1].indexOf(id);
+const COMMITTEE_USERS = [].map((id) => {
+  const rows = [];
+  const departments = [];
+  const hrDepartments = [];
+  const jobTitles = [];
+  const index = [].indexOf(id);
   return {id, name: rows[index], department: hrDepartments[index] || departments[index] || '', jobTitle: jobTitles[index] || ''};
 });
 const COMMITTEE_SAVED = {};
@@ -1699,7 +1699,7 @@ function attachFormTemplate(tplId, name) {
       <button type="button" class="modal-close" onclick="closeLinkAttach()" aria-label="닫기">×</button>
     </div>
     <form method="POST" id="link-attach-form" class="link-attach-form">
-      <input type="hidden" name="_csrf_token" value="f2cecda23c7468d9913b8f1bdda238addd513d86f86a4769ae0a5ac0932e3d2f">
+      <input type="hidden" name="_csrf_token" value="dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f">
       <input type="hidden" name="attach_type" value="committee_doc">
 
       <div class="link-kind-selector" aria-label="링크 유형 선택">
@@ -1853,7 +1853,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       for (const input of inputs) {
         const response = await fetch('/admin/ui-text', {
-          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'f2cecda23c7468d9913b8f1bdda238addd513d86f86a4769ae0a5ac0932e3d2f'},
+          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f'},
           body:JSON.stringify({key:input.dataset.uiTextKey,value:input.value.trim()})
         });
         const result = await response.json();
@@ -1959,7 +1959,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="adminCrDeleteModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="adminCrDeleteTitle">
   <div class="modal-box" style="max-width:520px;">
     <form id="adminCrDeleteForm" method="POST">
-      <input type="hidden" name="_csrf_token" value="f2cecda23c7468d9913b8f1bdda238addd513d86f86a4769ae0a5ac0932e3d2f">
+      <input type="hidden" name="_csrf_token" value="dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f">
       <div class="modal-header">
         <div>
           <h3 id="adminCrDeleteTitle" style="color:#B42318;">🗑 변경요청 삭제</h3>
@@ -2108,7 +2108,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = 'f2cecda23c7468d9913b8f1bdda238addd513d86f86a4769ae0a5ac0932e3d2f';
+  var token = 'dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -4893,7 +4893,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'f2cecda23c7468d9913b8f1bdda238addd513d86f86a4769ae0a5ac0932e3d2f' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

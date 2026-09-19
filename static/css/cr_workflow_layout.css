@@ -280,7 +280,10 @@
 .reassign-current { background: var(--bg-base); color: var(--text-primary);
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .reassign-current.is-empty { color: var(--text-muted); }
-select.reassign-box { height: 36px; background-color: #fff; }
+/* 검색형 선택 상자도 현재 담당자 칸과 같은 크기를 유지한다 */
+.reassign-picker { padding: 0; border: 0; }
+.reassign-picker .user-search-select { width: 100%; }
+.reassign-picker .uss-input { height: 36px; }
 .reassign-none { background: var(--bg-base); color: var(--text-muted); font-size: 11px;
   word-break: keep-all; line-height: 1.35; }
 @media (max-width: 640px) {

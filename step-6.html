@@ -204,7 +204,7 @@
       &nbsp;제어 프로그램 개선 및 안전성 검증
     </div>
     <div class="page-subtitle" style="margin-top:4px">
-      등록일 2026-09-19 13:28 · 신청자 미리보기 관리자
+      등록일 2026-09-19 22:38 · 신청자 미리보기 관리자
       ·  
       · 압연 제어설비
     </div>
@@ -822,7 +822,7 @@
   <div class="warn-box">⚠ <strong>개선계획서 첨부자료가 없습니다.</strong> 정비담당자가 첨부자료를 등록하기 전에는 다음 단계로 진행할 수 없습니다.</div>
   
   <form method="POST" action="/cr/6/action">
-      <input type="hidden" name="_csrf_token" value="dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f">
+      <input type="hidden" name="_csrf_token" value="b795ae7986dafde94e77f4a499b5bf5b39eea1318d6fda2f8c01d14d2bd34048">
     <input type="hidden" name="action" value="plan_approve">
     <div class="form-group">
       <label class="form-label">승인 코멘트</label>
@@ -840,7 +840,7 @@
   <div id="reject-panel-plan" style="display:none;margin-top:16px;padding:14px;background:#FFF8E1;border-radius:8px;border:1px solid #FFD54F;">
     <div style="font-size:13px;font-weight:700;color:#E65100;margin-bottom:8px;">↩ 개선계획서 반려 — 정비담당자가 수정 후 재제출합니다 (개선 건 취소 아님)</div>
     <form method="POST" action="/cr/6/action">
-      <input type="hidden" name="_csrf_token" value="dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f">
+      <input type="hidden" name="_csrf_token" value="b795ae7986dafde94e77f4a499b5bf5b39eea1318d6fda2f8c01d14d2bd34048">
       <input type="hidden" name="action" value="plan_reject">
       <div class="form-group">
         <label class="form-label" style="color:#E65100;">반려 사유 (수정 요청 내용) <span class="req">*</span></label>
@@ -959,7 +959,7 @@ function handleStandardsRevisionChoice(value) {
     </div>
     
     <form method="POST" action="/cr/6/admin_reassign" id="admin-reassign-form">
-      <input type="hidden" name="_csrf_token" value="dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f">
+      <input type="hidden" name="_csrf_token" value="b795ae7986dafde94e77f4a499b5bf5b39eea1318d6fda2f8c01d14d2bd34048">
       <div class="modal-body modal-body-compact">
         <p class="reassign-guide">
           담당자가 휴직·퇴사 등으로 부재중이어서 워크플로우가 멈췄을 때만 사용하세요.
@@ -1590,7 +1590,7 @@ function attachFormTemplate(tplId, name) {
       <button type="button" class="modal-close" onclick="closeLinkAttach()" aria-label="닫기">×</button>
     </div>
     <form method="POST" id="link-attach-form" class="link-attach-form">
-      <input type="hidden" name="_csrf_token" value="dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f">
+      <input type="hidden" name="_csrf_token" value="b795ae7986dafde94e77f4a499b5bf5b39eea1318d6fda2f8c01d14d2bd34048">
       <input type="hidden" name="attach_type" value="committee_doc">
 
       <div class="link-kind-selector" aria-label="링크 유형 선택">
@@ -1744,7 +1744,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       for (const input of inputs) {
         const response = await fetch('/admin/ui-text', {
-          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f'},
+          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'b795ae7986dafde94e77f4a499b5bf5b39eea1318d6fda2f8c01d14d2bd34048'},
           body:JSON.stringify({key:input.dataset.uiTextKey,value:input.value.trim()})
         });
         const result = await response.json();
@@ -1850,7 +1850,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="adminCrDeleteModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="adminCrDeleteTitle">
   <div class="modal-box" style="max-width:520px;">
     <form id="adminCrDeleteForm" method="POST">
-      <input type="hidden" name="_csrf_token" value="dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f">
+      <input type="hidden" name="_csrf_token" value="b795ae7986dafde94e77f4a499b5bf5b39eea1318d6fda2f8c01d14d2bd34048">
       <div class="modal-header">
         <div>
           <h3 id="adminCrDeleteTitle" style="color:#B42318;">🗑 변경요청 삭제</h3>
@@ -1999,7 +1999,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = 'dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f';
+  var token = 'b795ae7986dafde94e77f4a499b5bf5b39eea1318d6fda2f8c01d14d2bd34048';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -4784,7 +4784,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'dadbdc6e7456eb354a1ebec210b3d765fd18c539907d9eb06a67493279b9c22f' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'b795ae7986dafde94e77f4a499b5bf5b39eea1318d6fda2f8c01d14d2bd34048' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

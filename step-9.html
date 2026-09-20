@@ -204,7 +204,7 @@
       &nbsp;제어 프로그램 개선 및 안전성 검증
     </div>
     <div class="page-subtitle" style="margin-top:4px">
-      등록일 2026-09-20 13:35 · 신청자 미리보기 관리자
+      등록일 2026-09-20 14:01 · 신청자 미리보기 관리자
       ·  
       · 압연 제어설비
     </div>
@@ -817,7 +817,7 @@
 
   
   <form method="POST" action="/cr/9/action" class="commissioning-inline-section ">
-    <input type="hidden" name="_csrf_token" value="12c2381e213f3fafd6b196152e01dfe45e4f488e9ddb04d1c73113c066edd543">
+    <input type="hidden" name="_csrf_token" value="f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3">
     <input type="hidden" name="action" value="education_check">
     <div class="commissioning-section-head"><div><span>1</span><strong>개선 내용 교육</strong><small>변경된 작업방법과 안전사항을 교육하고 기록합니다.</small></div></div>
     <div class="commissioning-form-grid">
@@ -977,7 +977,7 @@ function handleStandardsRevisionChoice(value) {
     </div>
     
     <form method="POST" action="/cr/9/admin_reassign" id="admin-reassign-form">
-      <input type="hidden" name="_csrf_token" value="12c2381e213f3fafd6b196152e01dfe45e4f488e9ddb04d1c73113c066edd543">
+      <input type="hidden" name="_csrf_token" value="f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3">
       <div class="modal-body modal-body-compact">
         <p class="reassign-guide">
           담당자가 휴직·퇴사 등으로 부재중이어서 워크플로우가 멈췄을 때만 사용하세요.
@@ -1132,16 +1132,21 @@ document.addEventListener('submit', (e) => {
 const CR_ID = 9;
 const TUTORIAL_FRAME = false;
 const CR_STATUS = "COMMISSIONING";
-const COMMITTEE_USERS = [].map((id) => {
-  const rows = [];
-  const departments = [];
-  const hrDepartments = [];
-  const jobTitles = [];
-  const index = [].indexOf(id);
-  return {id, name: rows[index], department: hrDepartments[index] || departments[index] || '', jobTitle: jobTitles[index] || ''};
-});
 const COMMITTEE_SAVED = {};
 const COMMITTEE_MAX_ATTENDEES = 15;
+// 참석자 명부는 화면에 싣지 않고 검색 API로 필요한 만큼만 받아온다.
+// 이미 저장된 참석자는 저장 내용 안에 이름·부서가 들어 있어 따로 조회하지 않아도 된다.
+const COMMITTEE_ATTENDEE_URL = "/cr/9/committee/attendees";
+const committeeUserCache = new Map();
+(COMMITTEE_SAVED.attendees || []).forEach(user => committeeUserCache.set(Number(user.id), {
+  id: Number(user.id), name: user.name || '',
+  department: user.department || '', jobTitle: user.job_title || ''
+}));
+let committeeSearchResults = [];
+let committeeSearchState = 'idle';
+let committeeSearchHasMore = false;
+let committeeSearchSeq = 0;
+let committeeSearchTimer = null;
 let committeeAttendeeIds = new Set((COMMITTEE_SAVED.attendee_ids || []).map(Number));
 function escapeCommitteeHtml(value) {
   return String(value == null ? '' : value).replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
@@ -1151,10 +1156,12 @@ function renderCommitteeAttendees() {
   const chips = document.getElementById('committee-attendee-chips');
   const results = document.getElementById('committee-attendee-results');
   if (!chips) return;
-  const selected = COMMITTEE_USERS.filter(user => committeeAttendeeIds.has(user.id));
+  const selected = Array.from(committeeAttendeeIds)
+    .map(id => committeeUserCache.get(id))
+    .filter(Boolean);
   chips.innerHTML = selected.length ? selected.map(user => `<span class="committee-attendee-chip">${escapeCommitteeHtml(user.name)} <small>${escapeCommitteeHtml(user.department || '소속 없음')}</small><button type="button" aria-label="${escapeCommitteeHtml(user.name)} 제외" onclick="event.stopPropagation();toggleCommitteeAttendee(${user.id})">×</button></span>`).join('') : '<span class="committee-empty">참석자를 검색해 선택하세요.</span>';
   document.getElementById('committee-attendee-ids').value = JSON.stringify(selected.map(user => user.id));
-  if (results) filterCommitteeAttendees();
+  if (results) renderCommitteeSearchResults();
   const count = document.getElementById('committee-attendee-count');
   if (count) count.textContent = `${selected.length}명 선택`;
 }
@@ -1163,24 +1170,71 @@ function toggleCommitteeAttendee(id) {
     committeeAttendeeIds.delete(id);
   } else if (committeeAttendeeIds.size >= COMMITTEE_MAX_ATTENDEES) {
     showToast('❌ 참석자는 최대 15명까지 선택할 수 있습니다.', true);
-    filterCommitteeAttendees();
+    renderCommitteeSearchResults();
     return;
   } else {
     committeeAttendeeIds.add(id);
   }
   renderCommitteeAttendees();
 }
-function filterCommitteeAttendees() {
+function renderCommitteeSearchResults() {
   const results = document.getElementById('committee-attendee-results');
   if (!results) return;
+  if (committeeSearchState === 'loading') {
+    results.innerHTML = '<div class="committee-empty">찾는 중입니다…</div>';
+    return;
+  }
+  if (committeeSearchState === 'error') {
+    results.innerHTML = '<div class="committee-empty">인사정보를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.</div>';
+    return;
+  }
+  if (!committeeSearchResults.length) {
+    results.innerHTML = '<div class="committee-empty">일치하는 인사정보가 없습니다.</div>';
+    return;
+  }
+  const rows = committeeSearchResults.map(user =>
+    `<label><input type="checkbox" ${committeeAttendeeIds.has(user.id) ? 'checked' : ''} onchange="toggleCommitteeAttendee(${user.id})"><span><strong>${escapeCommitteeHtml(user.name)}</strong><small>${escapeCommitteeHtml(user.department || '소속 없음')}${user.jobTitle ? ' · ' + escapeCommitteeHtml(user.jobTitle) : ''}</small></span></label>`).join('');
+  // 상한을 넘으면 앞부분만 보여주므로, 검색어를 좁히라고 알려준다.
+  const notice = committeeSearchHasMore
+    ? '<div class="committee-empty">결과가 많아 일부만 표시했습니다. 이름이나 부서를 더 입력해 좁혀주세요.</div>'
+    : '';
+  results.innerHTML = rows + notice;
+}
+async function fetchCommitteeAttendees() {
   const input = document.getElementById('committee-attendee-search');
-  const query = (input ? input.value : '').trim().toLowerCase();
-  const users = COMMITTEE_USERS.filter(user => `${user.name} ${user.department} ${user.jobTitle}`.toLowerCase().includes(query));
-  results.innerHTML = users.length ? users.map(user => `<label><input type="checkbox" ${committeeAttendeeIds.has(user.id) ? 'checked' : ''} onchange="toggleCommitteeAttendee(${user.id})"><span><strong>${escapeCommitteeHtml(user.name)}</strong><small>${escapeCommitteeHtml(user.department || '소속 없음')}${user.jobTitle ? ' · ' + escapeCommitteeHtml(user.jobTitle) : ''}</small></span></label>`).join('') : '<div class="committee-empty">일치하는 인사정보가 없습니다.</div>';
+  const keyword = (input ? input.value : '').trim();
+  const seq = ++committeeSearchSeq;
+  committeeSearchState = 'loading';
+  committeeSearchHasMore = false;
+  renderCommitteeSearchResults();
+  try {
+    const response = await fetch(`${COMMITTEE_ATTENDEE_URL}?q=${encodeURIComponent(keyword)}`,
+                                 {headers: {'Accept': 'application/json'}});
+    const data = await response.json();
+    // 입력이 이어지는 동안 늦게 온 응답이 최신 결과를 덮어쓰지 않게 한다.
+    if (seq !== committeeSearchSeq) return;
+    if (!response.ok || !data.ok) throw new Error(data.msg || '검색 실패');
+    committeeSearchResults = data.users || [];
+    committeeSearchResults.forEach(user => committeeUserCache.set(user.id, user));
+    committeeSearchState = 'done';
+    committeeSearchHasMore = Boolean(data.has_more);
+    renderCommitteeSearchResults();
+  } catch (err) {
+    if (seq !== committeeSearchSeq) return;
+    committeeSearchResults = [];
+    committeeSearchState = 'error';
+    committeeSearchHasMore = false;
+    renderCommitteeSearchResults();
+  }
+}
+function filterCommitteeAttendees() {
+  // 글자를 칠 때마다 서버에 묻지 않도록 잠시 기다렸다 보낸다.
+  clearTimeout(committeeSearchTimer);
+  committeeSearchTimer = setTimeout(fetchCommitteeAttendees, 250);
 }
 function openCommitteeAttendeePicker() {
   openModal('modal-committee-attendees');
-  filterCommitteeAttendees();
+  fetchCommitteeAttendees();
   setTimeout(() => document.getElementById('committee-attendee-search').focus(), 0);
 }
 function addCommitteeOpinion(department = '안전', opinion = '') {
@@ -1608,7 +1662,7 @@ function attachFormTemplate(tplId, name) {
       <button type="button" class="modal-close" onclick="closeLinkAttach()" aria-label="닫기">×</button>
     </div>
     <form method="POST" id="link-attach-form" class="link-attach-form">
-      <input type="hidden" name="_csrf_token" value="12c2381e213f3fafd6b196152e01dfe45e4f488e9ddb04d1c73113c066edd543">
+      <input type="hidden" name="_csrf_token" value="f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3">
       <input type="hidden" name="attach_type" value="committee_doc">
 
       <div class="link-kind-selector" aria-label="링크 유형 선택">
@@ -1762,7 +1816,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       for (const input of inputs) {
         const response = await fetch('/admin/ui-text', {
-          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'12c2381e213f3fafd6b196152e01dfe45e4f488e9ddb04d1c73113c066edd543'},
+          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3'},
           body:JSON.stringify({key:input.dataset.uiTextKey,value:input.value.trim()})
         });
         const result = await response.json();
@@ -1868,7 +1922,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="adminCrDeleteModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="adminCrDeleteTitle">
   <div class="modal-box" style="max-width:520px;">
     <form id="adminCrDeleteForm" method="POST">
-      <input type="hidden" name="_csrf_token" value="12c2381e213f3fafd6b196152e01dfe45e4f488e9ddb04d1c73113c066edd543">
+      <input type="hidden" name="_csrf_token" value="f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3">
       <div class="modal-header">
         <div>
           <h3 id="adminCrDeleteTitle" style="color:#B42318;">🗑 변경요청 삭제</h3>
@@ -2017,7 +2071,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = '12c2381e213f3fafd6b196152e01dfe45e4f488e9ddb04d1c73113c066edd543';
+  var token = 'f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -3870,7 +3924,7 @@ function showToast(msg, isErr) {
         ],
         '완료·비대상 처리': [
           ['대상목록 집계 확인', '.pb-list-summary', 'inspect', '', 2600, '목록 상단에서 전체·완료·비대상·미완료 건수를 확인합니다.'],
-          ['완료 체크 위치 확인', '.pb-check-done', 'inspect', '', 3000, '업로드 없이 완료로 기록할 때는 목록 우측의 완료를 체크합니다. 완료·비대상 지정은 전 직원이 가능하고, 미완료로 되돌리는 것은 처리한 본인 또는 전체업무 권한자만 가능합니다.'],
+          ['완료 체크 위치 확인', '.pb-check-done', 'inspect', '', 3000, '업로드 없이 완료로 기록할 때는 목록 우측의 완료를 체크합니다. 완료·비대상 지정은 그 공장의 정기백업관리자와 관리자만 할 수 있고, 미완료로 되돌리는 것은 처리한 본인 또는 전체업무 권한자만 가능합니다.'],
           ['비대상 처리 기준 확인', '.pb-check-na', 'inspect', '', 2800, '정기백업 대상이 아닌 설비는 비대상으로 체크합니다. 비대상은 진행률 계산에서 제외됩니다.']
         ],
         '백업 대상 신규 등록': [
@@ -4101,10 +4155,10 @@ function showToast(msg, isErr) {
     [tutorialRoleLabel('maint_staff', '정비담당자'), '연도별 백업현황 확인', '실적 연도를 선택하고 전체·공장별 진행률로 올해 처리할 백업 업무를 파악합니다.', '#pb-header-year'],
     [tutorialRoleLabel('maint_staff', '정비담당자'), '공장별 진행률 확인', '공장별 완료율과 완료 수량을 확인하고 작업할 공장을 눌러 목록을 좁힙니다.', '.pb-gauge-list a:nth-child(2)'],
     [tutorialRoleLabel('maint_staff', '정비담당자'), '대상목록 필터링', '공장·지역·자산분류·부서·책임자·담당자 조건으로 필요한 설비만 조회합니다.', '.pb-filter-form'],
-    [tutorialRoleLabel('maint_staff', '정비담당자'), '백업파일 업로드 시작', '공장을 선택한 상태에서 백업파일 업로드 버튼을 눌러 업로드 팝업을 엽니다.', '#factoryUploadBtn'],
+    ['정기백업관리자', '백업파일 업로드 시작', '담당 공장을 선택한 상태에서 백업파일 업로드 버튼을 눌러 업로드 팝업을 엽니다.', '#factoryUploadBtn'],
     [tutorialRoleLabel('maint_staff', '정비담당자'), '설비별·일괄 파일 등록', '설비별 또는 일괄 방식을 고르고 NAS 저장 폴더 경로와 백업파일을 지정합니다.', '#factory-upload-form'],
-    [tutorialRoleLabel('maint_staff', '정비담당자'), '완료·비대상 처리', '목록 우측에서 완료 또는 비대상을 체크하면 공장별 진행률에 즉시 반영됩니다.', '.pb-check-done'],
-    ['전체업무 권한자', '백업 대상 신규 등록', '지역·공장·공장상세·설비명과 관리정보를 입력해 대상 설비를 개별 등록합니다.', 'button[onclick="openPbRegister()"]'],
+    ['정기백업관리자', '완료·비대상 처리', '담당 공장의 목록 우측에서 완료 또는 비대상을 체크하면 공장별 진행률에 즉시 반영됩니다. 권한이 없으면 조회만 됩니다.', '.pb-check-done'],
+    ['정기백업관리자', '백업 대상 신규 등록', '담당 공장의 지역·공장·공장상세·설비명과 관리정보를 입력해 대상 설비를 개별 등록합니다.', 'button[onclick="openPbRegister()"]'],
     ['전체업무 권한자', '엑셀 일괄등록', '템플릿을 내려받아 헤더를 매핑하고 아이피 중복 처리 정책을 확인한 뒤 여러 대상을 등록합니다.', '.settings-tabs .s-tab:nth-child(2)']
   ];
   const MENU_TUTORIAL = [
@@ -4802,7 +4856,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '12c2381e213f3fafd6b196152e01dfe45e4f488e9ddb04d1c73113c066edd543' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

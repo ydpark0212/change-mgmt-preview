@@ -482,7 +482,7 @@
   <section class="pbw-upload-panel" data-backup-upload-panel hidden aria-labelledby="pbw-upload-title">
     <div class="pbw-upload-head"><div><span class="pbw-step-number">3</span><h2 id="pbw-upload-title">백업 파일 적용</h2><p data-upload-mode>선택한 설비에 파일을 연결합니다.</p></div><button type="button" class="pbw-close" data-close-upload aria-label="닫기">×</button></div>
     <form method="POST" enctype="multipart/form-data" data-upload-form action="/periodic-backup/bulk-upload" data-bulk-action="/periodic-backup/bulk-upload">
-      <input type="hidden" name="_csrf_token" value="12c2381e213f3fafd6b196152e01dfe45e4f488e9ddb04d1c73113c066edd543">
+      <input type="hidden" name="_csrf_token" value="f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3">
       <input type="hidden" name="year" value="2026">
       <input type="hidden" name="factory" value="" data-upload-factory>
       <input type="hidden" name="include_all_targets" value="1">
@@ -586,7 +586,7 @@
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = '12c2381e213f3fafd6b196152e01dfe45e4f488e9ddb04d1c73113c066edd543';
+  var token = 'f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -2439,7 +2439,7 @@ function showToast(msg, isErr) {
         ],
         '완료·비대상 처리': [
           ['대상목록 집계 확인', '.pb-list-summary', 'inspect', '', 2600, '목록 상단에서 전체·완료·비대상·미완료 건수를 확인합니다.'],
-          ['완료 체크 위치 확인', '.pb-check-done', 'inspect', '', 3000, '업로드 없이 완료로 기록할 때는 목록 우측의 완료를 체크합니다. 완료·비대상 지정은 전 직원이 가능하고, 미완료로 되돌리는 것은 처리한 본인 또는 전체업무 권한자만 가능합니다.'],
+          ['완료 체크 위치 확인', '.pb-check-done', 'inspect', '', 3000, '업로드 없이 완료로 기록할 때는 목록 우측의 완료를 체크합니다. 완료·비대상 지정은 그 공장의 정기백업관리자와 관리자만 할 수 있고, 미완료로 되돌리는 것은 처리한 본인 또는 전체업무 권한자만 가능합니다.'],
           ['비대상 처리 기준 확인', '.pb-check-na', 'inspect', '', 2800, '정기백업 대상이 아닌 설비는 비대상으로 체크합니다. 비대상은 진행률 계산에서 제외됩니다.']
         ],
         '백업 대상 신규 등록': [
@@ -2670,10 +2670,10 @@ function showToast(msg, isErr) {
     [tutorialRoleLabel('maint_staff', '정비담당자'), '연도별 백업현황 확인', '실적 연도를 선택하고 전체·공장별 진행률로 올해 처리할 백업 업무를 파악합니다.', '#pb-header-year'],
     [tutorialRoleLabel('maint_staff', '정비담당자'), '공장별 진행률 확인', '공장별 완료율과 완료 수량을 확인하고 작업할 공장을 눌러 목록을 좁힙니다.', '.pb-gauge-list a:nth-child(2)'],
     [tutorialRoleLabel('maint_staff', '정비담당자'), '대상목록 필터링', '공장·지역·자산분류·부서·책임자·담당자 조건으로 필요한 설비만 조회합니다.', '.pb-filter-form'],
-    [tutorialRoleLabel('maint_staff', '정비담당자'), '백업파일 업로드 시작', '공장을 선택한 상태에서 백업파일 업로드 버튼을 눌러 업로드 팝업을 엽니다.', '#factoryUploadBtn'],
+    ['정기백업관리자', '백업파일 업로드 시작', '담당 공장을 선택한 상태에서 백업파일 업로드 버튼을 눌러 업로드 팝업을 엽니다.', '#factoryUploadBtn'],
     [tutorialRoleLabel('maint_staff', '정비담당자'), '설비별·일괄 파일 등록', '설비별 또는 일괄 방식을 고르고 NAS 저장 폴더 경로와 백업파일을 지정합니다.', '#factory-upload-form'],
-    [tutorialRoleLabel('maint_staff', '정비담당자'), '완료·비대상 처리', '목록 우측에서 완료 또는 비대상을 체크하면 공장별 진행률에 즉시 반영됩니다.', '.pb-check-done'],
-    ['전체업무 권한자', '백업 대상 신규 등록', '지역·공장·공장상세·설비명과 관리정보를 입력해 대상 설비를 개별 등록합니다.', 'button[onclick="openPbRegister()"]'],
+    ['정기백업관리자', '완료·비대상 처리', '담당 공장의 목록 우측에서 완료 또는 비대상을 체크하면 공장별 진행률에 즉시 반영됩니다. 권한이 없으면 조회만 됩니다.', '.pb-check-done'],
+    ['정기백업관리자', '백업 대상 신규 등록', '담당 공장의 지역·공장·공장상세·설비명과 관리정보를 입력해 대상 설비를 개별 등록합니다.', 'button[onclick="openPbRegister()"]'],
     ['전체업무 권한자', '엑셀 일괄등록', '템플릿을 내려받아 헤더를 매핑하고 아이피 중복 처리 정책을 확인한 뒤 여러 대상을 등록합니다.', '.settings-tabs .s-tab:nth-child(2)']
   ];
   const MENU_TUTORIAL = [
@@ -3371,7 +3371,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '12c2381e213f3fafd6b196152e01dfe45e4f488e9ddb04d1c73113c066edd543' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

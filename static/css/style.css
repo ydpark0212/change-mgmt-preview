@@ -1330,6 +1330,35 @@ select.form-control { cursor: pointer; }
 .pb-done    { display: inline-block; background: #E8F5E9; color: #2E7D32; padding: 3px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; }
 .pb-pending { display: inline-block; background: #FFF3E0; color: #E65100; padding: 3px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; }
 .pb-na      { display: inline-block; background: #EEEEEE; color: #616161; padding: 3px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; }
+/* 사용자 관리 — 정기백업관리자 공장 지정 */
+.pb-grant-group { padding:12px 14px; border:1px solid var(--border); border-radius:9px; background:#FAFCFE; }
+.pb-grant-tag { margin-left:5px; padding:1px 7px; border-radius:10px; background:#EDF5FD;
+  color:#075FAF; font-size:10.5px; font-weight:700; vertical-align:middle; }
+.pb-grant-list { display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:6px 10px;
+  max-height:212px; overflow:auto; padding:9px; border:1px solid var(--border);
+  border-radius:8px; background:#fff; }
+.pb-grant-item { display:flex; align-items:center; gap:7px; padding:3px 4px; border-radius:6px;
+  font-size:13px; color:var(--text-main); cursor:pointer; word-break:keep-all; }
+.pb-grant-item:hover { background:#F2F7FD; }
+.pb-grant-item input { width:15px; height:15px; accent-color:var(--posco-500); flex:none; }
+.pb-grant-note { padding:9px 11px; border:1px dashed var(--border); border-radius:8px;
+  background:#fff; color:var(--text-secondary); font-size:12.5px; line-height:1.55; word-break:keep-all; }
+@media(max-width:600px){ .pb-grant-list { grid-template-columns:1fr; } }
+
+/* 정기백업관리자 권한 안내 — 색만으로 구분하지 않고 아이콘·문구를 함께 둔다 */
+.pb-perm-note { display:flex; align-items:flex-start; gap:9px; margin-bottom:14px;
+  padding:11px 14px; border:1px solid var(--border); border-left-width:4px; border-radius:8px;
+  font-size:13px; line-height:1.55; word-break:keep-all; }
+.pb-perm-note strong { font-weight:750; }
+.pb-perm-icon { flex:none; font-size:15px; line-height:1.4; }
+.pb-perm-admin { border-left-color:#0A7A8F; background:#F1F9FB; color:#12566A; }
+.pb-perm-manager { border-left-color:#1164C4; background:#F2F7FD; color:#1A4A85; }
+.pb-perm-readonly { border-left-color:#8A97A6; background:#F6F8FA; color:#4E5D6E; }
+
+/* 맡지 않은 공장의 행 — 잠겨 있다는 것이 보이게 한다 */
+.pb-check-group-readonly { opacity:.55; cursor:not-allowed; }
+.pb-check-group-readonly .pb-check { cursor:not-allowed; }
+
 .pb-check-group { display: flex; gap: 10px; align-items: center; }
 .pb-check { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--text-secondary); cursor: pointer; user-select: none; white-space: nowrap; }
 .pb-check input[type=checkbox] { width: 14px; height: 14px; cursor: pointer; accent-color: var(--posco-500); }

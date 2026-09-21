@@ -14,3 +14,13 @@
 .cr-stage-heading p b,
 .cr-request-history-head p b,
 .cr-step1-head p b { color: var(--red-bright, #E53935); font-weight: 800; }
+
+/* 첨부가 없으면 다음 단계로 넘어갈 수 없는 항목 표시 */
+.attach-required {
+  margin-left: 2px;
+  color: var(--red-bright, #E53935);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  white-space: nowrap;
+}

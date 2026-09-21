@@ -206,7 +206,7 @@
       &nbsp;제어 프로그램 개선 및 안전성 검증
     </div>
     <div class="page-subtitle" style="margin-top:4px">
-      등록일 2026-09-21 13:17 · 신청자 미리보기 관리자
+      등록일 2026-09-21 13:44 · 신청자 미리보기 관리자
       ·  
       · 압연 제어설비
     </div>
@@ -590,7 +590,7 @@
   <span class="cr-stage-kicker">STEP 5</span><h2>변경관리위원회 승인 <span class="cr-stage-owner">(발의자, 생산부장/공장장)</span></h2><p>개선계획과 검토자료를 확인하고 승인 여부를 결정합니다. <b>*</b> 필수 작성 항목</p>
 </header>
 <header class="cr-stage-heading" data-step-group="PLAN_APPROVE" data-layout-step="6">
-  <span class="cr-stage-kicker">STEP 6</span><h2>개선계획 승인 <span class="cr-stage-owner">(정비섹션 리더 / 정비 파트장)</span></h2><p>제출된 개선계획과 첨부자료를 확인하고 승인합니다. <b>*</b> 필수 작성 항목</p>
+  <span class="cr-stage-kicker">STEP 6</span><h2>개선계획 승인 <span class="cr-stage-owner">(정비섹션 리더 / 정비 파트장)</span></h2><p>제출된 개선계획과 첨부자료를 확인하고 승인합니다. 첨부자료가 없어도 승인할 수 있습니다.</p>
 </header>
 <header class="cr-stage-heading" data-step-group="SIM_PROGRESS" data-layout-step="7">
   <span class="cr-stage-kicker">STEP 7</span><h2>개선진행 <span class="cr-stage-owner">(정비 담당자)</span></h2><p>개선작업을 수행하고 Simulation Test를 요청합니다.</p>
@@ -742,7 +742,8 @@
 
 
 <section class="action-panel cr-step-completion-card cr-preserved-action-panel" data-step-group="GRADED" data-completion-step="4">
-  <div class="cr-completion-head"><div><span>STEP 4 · 작업완료 내역</span><h3>개선계획</h3><p>작성한 개선계획과 제출 내용을 확인합니다.</p></div>
+  
+  <div class="cr-completion-head"><div><span>STEP 4 · 작업완료 내역</span></div>
   <div class="cr-history-empty">처리 이력이 없습니다.</div>
 </div>
   <div class="cr-inline-plan-form cr-preserved-work">
@@ -807,7 +808,7 @@
 <div class="action-panel cr-plan-route-panel" data-step-group="COMMITTEE">
   <div class="action-panel-title">STEP 5 — 다음 단계 결정 (발의담당자)</div>
   <form method="POST" action="/cr/5/action" class="cr-step5-route-row">
-    <input type="hidden" name="_csrf_token" value="19f3ad2b8843d299e4b7d33dd3cc6b393af5de5038d41e7de49e37ad72776778">
+    <input type="hidden" name="_csrf_token" value="3c115dcd5a07f26e6ee695b421090ce42abaa9bc94a8def5efd77d3f49901f04">
     <input type="hidden" name="action" value="go_committee">
     <div class="cr-step5-grade"><span>최종 판정 등급</span><strong class="grade-3">3등급 (중위험)</strong></div>
     <div class="cr-step5-guidance">⚠ 변경관리위원회 승인 필수 · 생산부장 전결 · 지정한 위원장만 승인</div>
@@ -857,7 +858,7 @@
   </form>
   
   <section class="committee-form-section" style="margin-top:14px;">
-    <div class="committee-section-head cr-attachment-head"><span>4</span><div><strong>첨부자료</strong><small>검토자료 파일 또는 URL/ECM 링크를 등록합니다.</small></div>
+    <div class="committee-section-head cr-attachment-head"><span>4</span><div><strong>첨부자료 <em class="attach-required">(첨부 필수)</em></strong><small>검토자료 파일 또는 URL/ECM 링크를 등록합니다.</small></div>
 <div class="cr-attachment-head-actions" data-attachment-actions="committee_doc">
   <button type="button" class="btn btn-sm btn-ghost" data-attachment-button="template" onclick="openFormPicker('committee_doc')">📋 양식 다운로드</button>
   <button type="button" class="btn btn-sm btn-ghost" data-attachment-button="link" onclick="openLinkAttach('committee_doc')">🔗 URL/ECM 링크 첨부</button>
@@ -880,7 +881,7 @@
   
   <div class="committee-approval-block">
   <form method="POST" action="/cr/5/action" class="cr-plan-route-form">
-      <input type="hidden" name="_csrf_token" value="19f3ad2b8843d299e4b7d33dd3cc6b393af5de5038d41e7de49e37ad72776778">
+      <input type="hidden" name="_csrf_token" value="3c115dcd5a07f26e6ee695b421090ce42abaa9bc94a8def5efd77d3f49901f04">
     <input type="hidden" name="action" value="committee_approve">
     <div class="action-buttons cr-action-footer">
       
@@ -901,7 +902,7 @@
   <div id="reject-panel-committee" style="display:none;margin-top:16px;padding:14px;background:#FFF8E1;border-radius:8px;border:1px solid #FFD54F;">
     <div style="font-size:13px;font-weight:700;color:#E65100;margin-bottom:8px;">↩ 개선계획서 반려 — 정비담당자가 수정 후 재제출합니다 (개선 건 취소 아님)</div>
     <form method="POST" action="/cr/5/action">
-      <input type="hidden" name="_csrf_token" value="19f3ad2b8843d299e4b7d33dd3cc6b393af5de5038d41e7de49e37ad72776778">
+      <input type="hidden" name="_csrf_token" value="3c115dcd5a07f26e6ee695b421090ce42abaa9bc94a8def5efd77d3f49901f04">
       <input type="hidden" name="action" value="plan_reject">
       <div class="form-group">
         <label class="form-label" style="color:#E65100;">반려 사유 (수정 요청 내용) <span class="req">*</span></label>
@@ -1024,7 +1025,7 @@ function handleStandardsRevisionChoice(value) {
     </div>
     
     <form method="POST" action="/cr/5/admin_reassign" id="admin-reassign-form">
-      <input type="hidden" name="_csrf_token" value="19f3ad2b8843d299e4b7d33dd3cc6b393af5de5038d41e7de49e37ad72776778">
+      <input type="hidden" name="_csrf_token" value="3c115dcd5a07f26e6ee695b421090ce42abaa9bc94a8def5efd77d3f49901f04">
       <div class="modal-body modal-body-compact">
         <p class="reassign-guide">
           담당자가 휴직·퇴사 등으로 부재중이어서 워크플로우가 멈췄을 때만 사용하세요.
@@ -1179,7 +1180,9 @@ document.addEventListener('submit', (e) => {
 const CR_ID = 5;
 const TUTORIAL_FRAME = false;
 const CR_STATUS = "COMMITTEE";
-const COMMITTEE_SAVED = {};
+// 위원회 양식을 아직 저장하지 않았으면 committee_doc 이 null 로 내려온다.
+// 그대로 읽으면 아래 코드가 통째로 멈추므로 빈 객체로 받아 둔다.
+const COMMITTEE_SAVED = {} || {};
 const COMMITTEE_MAX_ATTENDEES = 15;
 // 참석자 명부는 화면에 싣지 않고 검색 API로 필요한 만큼만 받아온다.
 // 이미 저장된 참석자는 저장 내용 안에 이름·부서가 들어 있어 따로 조회하지 않아도 된다.
@@ -1709,7 +1712,7 @@ function attachFormTemplate(tplId, name) {
       <button type="button" class="modal-close" onclick="closeLinkAttach()" aria-label="닫기">×</button>
     </div>
     <form method="POST" id="link-attach-form" class="link-attach-form">
-      <input type="hidden" name="_csrf_token" value="19f3ad2b8843d299e4b7d33dd3cc6b393af5de5038d41e7de49e37ad72776778">
+      <input type="hidden" name="_csrf_token" value="3c115dcd5a07f26e6ee695b421090ce42abaa9bc94a8def5efd77d3f49901f04">
       <input type="hidden" name="attach_type" value="committee_doc">
 
       <div class="link-kind-selector" aria-label="링크 유형 선택">
@@ -1863,7 +1866,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       for (const input of inputs) {
         const response = await fetch('/admin/ui-text', {
-          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'19f3ad2b8843d299e4b7d33dd3cc6b393af5de5038d41e7de49e37ad72776778'},
+          method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':'3c115dcd5a07f26e6ee695b421090ce42abaa9bc94a8def5efd77d3f49901f04'},
           body:JSON.stringify({key:input.dataset.uiTextKey,value:input.value.trim()})
         });
         const result = await response.json();
@@ -1969,7 +1972,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="adminCrDeleteModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="adminCrDeleteTitle">
   <div class="modal-box" style="max-width:520px;">
     <form id="adminCrDeleteForm" method="POST">
-      <input type="hidden" name="_csrf_token" value="19f3ad2b8843d299e4b7d33dd3cc6b393af5de5038d41e7de49e37ad72776778">
+      <input type="hidden" name="_csrf_token" value="3c115dcd5a07f26e6ee695b421090ce42abaa9bc94a8def5efd77d3f49901f04">
       <div class="modal-header">
         <div>
           <h3 id="adminCrDeleteTitle" style="color:#B42318;">🗑 변경요청 삭제</h3>
@@ -2118,7 +2121,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = '19f3ad2b8843d299e4b7d33dd3cc6b393af5de5038d41e7de49e37ad72776778';
+  var token = '3c115dcd5a07f26e6ee695b421090ce42abaa9bc94a8def5efd77d3f49901f04';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -4903,7 +4906,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '19f3ad2b8843d299e4b7d33dd3cc6b393af5de5038d41e7de49e37ad72776778' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '3c115dcd5a07f26e6ee695b421090ce42abaa9bc94a8def5efd77d3f49901f04' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

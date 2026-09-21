@@ -265,6 +265,16 @@ ul { list-style: none; }
   transition: var(--transition);
 }
 .sidebar-user .u-logout:hover { color: var(--red-bright); }
+/* 제작 표기 — 사용자 정보와 섞이지 않게 얇은 선으로 나누고 아주 흐리게 둔다 */
+.sidebar-user .u-copy {
+  margin-top: 11px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.3);
+  font-size: 9.5px;
+  line-height: 1.5;
+  letter-spacing: .2px;
+}
 
 /* ─── Main ───────────────────────────────────────────────── */
 .main-content { margin-left: 258px; flex: 1; min-width: 0; padding: 28px 32px; min-height: 100vh; display: flex; flex-direction: column; }

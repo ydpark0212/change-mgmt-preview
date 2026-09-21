@@ -166,6 +166,8 @@
       <div class="u-name">미리보기 관리자</div>
       <div class="u-role">관리자 · </div>
       <a href="/logout" class="u-logout">로그아웃 →</a>
+      
+      <div class="u-copy">© 2026 YD.Park</div>
     </div>
   </aside>
 
@@ -344,7 +346,7 @@
             <div><dt>담당자</dt><dd>이제어</dd></div>
           </dl>
         </div>
-        <div class="pbw-card-footer"><span>DCS</span><span>최근 2026-09-20</span></div>
+        <div class="pbw-card-footer"><span>DCS</span><span>최근 2026-09-21</span></div>
       </article>
       
       <article class="pbw-equipment-card is-pending" tabindex="0" data-backup-card data-backup-id="5" data-factory="도금공장" data-region="광양" data-line="CGL 1라인" data-status="pending" data-search="도금 scada scada-cgl1 10.42.5.30 최자동 홍책임 통합 운전실" data-upload-url="/periodic-backup/5/upload">
@@ -382,7 +384,7 @@
             <div><dt>담당자</dt><dd>최자동</dd></div>
           </dl>
         </div>
-        <div class="pbw-card-footer"><span>PLC</span><span>최근 2026-09-20</span></div>
+        <div class="pbw-card-footer"><span>PLC</span><span>최근 2026-09-21</span></div>
       </article>
       
       <article class="pbw-equipment-card is-na" tabindex="0" data-backup-card data-backup-id="8" data-factory="후판공장" data-region="광양" data-line="가열로 라인" data-status="na" data-search="구형 데이터로거 log-rhf-01 윤시스템 홍책임 현장 판넬" data-upload-url="/periodic-backup/8/upload">
@@ -482,7 +484,7 @@
   <section class="pbw-upload-panel" data-backup-upload-panel hidden aria-labelledby="pbw-upload-title">
     <div class="pbw-upload-head"><div><span class="pbw-step-number">3</span><h2 id="pbw-upload-title">백업 파일 적용</h2><p data-upload-mode>선택한 설비에 파일을 연결합니다.</p></div><button type="button" class="pbw-close" data-close-upload aria-label="닫기">×</button></div>
     <form method="POST" enctype="multipart/form-data" data-upload-form action="/periodic-backup/bulk-upload" data-bulk-action="/periodic-backup/bulk-upload">
-      <input type="hidden" name="_csrf_token" value="f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3">
+      <input type="hidden" name="_csrf_token" value="8a2c8a5ffc14ecd25a80228c9bbf4b7d0679a36bbbe4a6be37981d37797029a6">
       <input type="hidden" name="year" value="2026">
       <input type="hidden" name="factory" value="" data-upload-factory>
       <input type="hidden" name="include_all_targets" value="1">
@@ -586,7 +588,7 @@
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = 'f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3';
+  var token = '8a2c8a5ffc14ecd25a80228c9bbf4b7d0679a36bbbe4a6be37981d37797029a6';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -3371,7 +3373,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': 'f8abb880c75ad951bbb9b34b3b2e9cbc6aa40fd51e8ac6b06a8b90d20cba41c3' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '8a2c8a5ffc14ecd25a80228c9bbf4b7d0679a36bbbe4a6be37981d37797029a6' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();

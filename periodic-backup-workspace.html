@@ -484,7 +484,7 @@
   <section class="pbw-upload-panel" data-backup-upload-panel hidden aria-labelledby="pbw-upload-title">
     <div class="pbw-upload-head"><div><span class="pbw-step-number">3</span><h2 id="pbw-upload-title">백업 파일 적용</h2><p data-upload-mode>선택한 설비에 파일을 연결합니다.</p></div><button type="button" class="pbw-close" data-close-upload aria-label="닫기">×</button></div>
     <form method="POST" enctype="multipart/form-data" data-upload-form action="/periodic-backup/bulk-upload" data-bulk-action="/periodic-backup/bulk-upload">
-      <input type="hidden" name="_csrf_token" value="6391600374383cef87aa24437cfc3f9ad478c5f346042eb9d5fa802f8ac6bad4">
+      <input type="hidden" name="_csrf_token" value="96f63651b29b2ab46fa87c39c4a96a2b973e7b9d43c3856988b7b589d5dce5ad">
       <input type="hidden" name="year" value="2026">
       <input type="hidden" name="factory" value="" data-upload-factory>
       <input type="hidden" name="include_all_targets" value="1">
@@ -588,7 +588,7 @@
 // ── CSRF 토큰 자동 삽입 ──────────────────────────────────
 // 페이지 내 모든 POST form에 _csrf_token hidden 필드 자동 추가
 (function() {
-  var token = '6391600374383cef87aa24437cfc3f9ad478c5f346042eb9d5fa802f8ac6bad4';
+  var token = '96f63651b29b2ab46fa87c39c4a96a2b973e7b9d43c3856988b7b589d5dce5ad';
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('form[method="post"], form[method="POST"]').forEach(function(form) {
       if (!form.querySelector('[name="_csrf_token"]')) {
@@ -3424,7 +3424,7 @@ function showToast(msg, isErr) {
         for (const input of inputs) {
           const response = await fetch('/admin/guide-text', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '6391600374383cef87aa24437cfc3f9ad478c5f346042eb9d5fa802f8ac6bad4' },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '96f63651b29b2ab46fa87c39c4a96a2b973e7b9d43c3856988b7b589d5dce5ad' },
             body: JSON.stringify({ key: input.dataset.guideTextKey, value: input.value.trim() })
           });
           const result = await response.json();
